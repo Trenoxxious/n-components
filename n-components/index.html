@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>n-components</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <script type="module" src="/src/index.ts"></script>
+</head>
+
+<body>
+    <header>
+        <h1>
+            n-components
+        </h1>
+        <p>Light-weight web components for use with vanilla HTML, JS and CSS.</p>
+    </header>
+    <p class="sec">You want some buttons? We have some cool buttons.</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <div class="display-sec">
+            <div>
+                Variants: 
+            </div>
+            <div class="display-row">
+                <n-button variant="primary">Primary</n-button>
+                <n-button variant="secondary">Secondary</n-button>
+                <n-button variant="warning">Warning</n-button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

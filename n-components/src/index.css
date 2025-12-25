@@ -59,6 +59,15 @@ header p {
     font-size: 1.8rem;
 }
 
+p {
+    font-family: "Manjari", sans-serif, system-ui;
+    font-weight: 400;
+}
+
+b {
+    font-family: "Cal Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 .sec {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -121,17 +130,16 @@ header p {
 }
 
 .code {
+    font-family: "Manjari", sans-serif, system-ui;
     text-wrap: nowrap;
     text-align: left;
     overflow-x: auto;
-    display: inline;
     justify-content: flex-start;
     align-items: center;
     padding: 5px 5px 0 5px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 4px;
     font-size: 1rem;
-    height: 100px;
     color: rgba(194, 194, 194, 1);
     font-weight: 500;
     border: 1px dotted rgba(255, 255, 255, 0.25);

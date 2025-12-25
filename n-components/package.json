@@ -1,28 +1,33 @@
 {
-  "name": "@trenoxxious/n-components",
-  "description": "Customizable components for use with vanilla HTML, Javascript and CSS.",
-  "private": false,
-  "version": "1.0.1",
-  "repository": "github:Trenoxxious/n-components",
-  "keywords": ["web-components", "lit-element"],
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./n-button": "./src/components/n-button.ts"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "lit": "^3.3.1"
-  },
-  "devDependencies": {
-    "typescript": "~5.9.3",
-    "vite": "npm:rolldown-vite@7.2.5"
-  },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.2.5"
-  }
+    "name": "@trenoxxious/n-components",
+    "description": "Customizable components for use with vanilla HTML, Javascript and CSS.",
+    "private": false,
+    "version": "1.0.4",
+    "repository": "github:Trenoxxious/n-components",
+    "keywords": [
+        "web-components",
+        "lit-element"
+    ],
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": "./dist/n-components.js"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "lit": "^3.3.1"
+    },
+    "devDependencies": {
+        "typescript": "~5.9.3",
+        "vite": "npm:rolldown-vite@7.2.5"
+    },
+    "overrides": {
+        "vite": "npm:rolldown-vite@7.2.5"
+    }
 }

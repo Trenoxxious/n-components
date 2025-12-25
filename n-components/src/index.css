@@ -122,17 +122,24 @@ header p {
 
 .code {
     text-wrap: nowrap;
+    text-align: left;
     overflow-x: auto;
-    display: inline flex;
+    display: inline;
     justify-content: flex-start;
     align-items: center;
     padding: 5px 5px 0 5px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 1rem;
-    height: 25px;
+    height: 100px;
     color: rgba(194, 194, 194, 1);
     font-weight: 500;
+    border: 1px dotted rgba(255, 255, 255, 0.25);
+}
+
+pre {
+    text-align: left;
+    margin-left: 25px;
 }
 
 .code span {
@@ -140,11 +147,11 @@ header p {
 }
 
 .html-red {
-    color: rgba(226, 47, 47, 1);
+    color: rgba(255, 84, 84, 1);
 }
 
 .html-orange {
-    color: rgba(226, 104, 47, 1);
+    color: rgba(255, 158, 79, 1);
 }
 
 .html-green {

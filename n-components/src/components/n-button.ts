@@ -13,9 +13,23 @@ export class NButton extends LitElement {
         sharp: { type: Boolean },
         scaleHover: { type: Boolean },
         dark: { type: Boolean },
+        // Standard HTML button attributes
+        type: { type: String },
+        id: { type: String },
+        name: { type: String },
+        disabled: { type: Boolean },
+        form: { type: String },
+        formaction: { type: String },
+        formmethod: { type: String },
+        formnovalidate: { type: Boolean },
+        formtarget: { type: String },
+        title: { type: String },
+        ariaLabel: { type: String, attribute: 'aria-label' },
+        ariaDescribedby: { type: String, attribute: 'aria-describedby' },
+        ariaPressed: { type: String, attribute: 'aria-pressed' },
     };
 
-    variant: 'normal' | 'info' | 'warning' | 'alert' = 'normal';
+    variant: 'normal' | 'info' | 'warning' | 'alert' | 'success' = 'normal';
     thin = false;
     thick = false;
     outlineOnly = false;
@@ -24,6 +38,20 @@ export class NButton extends LitElement {
     sharp = false;
     dark = false;
     animation: 'fast' | 'normal' | 'slow' | 'extra-slow' = 'normal';
+    // Standard HTML button attributes
+    type = 'button';
+    id = '';
+    name = '';
+    disabled = false;
+    form = '';
+    formaction = '';
+    formmethod = '';
+    formnovalidate = false;
+    formtarget = '';
+    title = '';
+    ariaLabel = '';
+    ariaDescribedby = '';
+    ariaPressed = '';
 
     static styles = css`
         button {
@@ -36,6 +64,7 @@ export class NButton extends LitElement {
             transition: all;
             animation-duration: 0.3s;
             min-width: 100px;
+            user-select: none;
         }
 
         button.info {
@@ -47,6 +76,17 @@ export class NButton extends LitElement {
         button.info:hover {
             background-color: #268fffff;
             border: 1px solid #4da3ffff;
+        }
+
+        button.success {
+            background-color: #00ff55ff;
+            color: #242424ff;
+            border: 1px solid #2cff72ff;
+        }
+
+        button.success:hover {
+            background-color: #26ff67ff;
+            border: 1px solid #93ffb7ff;
         }
 
         button.normal {
@@ -130,8 +170,21 @@ export class NButton extends LitElement {
     `;
 
     render() {
-        const color = this.variant === 'normal' && this.dark ? 'white' : '';
+        const color = (this.variant === 'normal' || this.variant === 'success') && this.dark ? this.variant === 'normal' ? 'white' : '#2cff72ff' : '';
         return html`<button 
+            type="${this.type}"
+            ?disabled="${this.disabled}"
+            id="${this.id || ''}"
+            name="${this.name || ''}"
+            form="${this.form || ''}"
+            formaction="${this.formaction || ''}"
+            formmethod="${this.formmethod || ''}"
+            ?formnovalidate="${this.formnovalidate}"
+            formtarget="${this.formtarget || ''}"
+            title="${this.title || ''}"
+            aria-label="${this.ariaLabel || ''}"
+            aria-describedby="${this.ariaDescribedby || ''}"
+            aria-pressed="${this.ariaPressed || ''}"
             class="${this.variant}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
             style="${color ? `color: ${color}` : ''}">
             <slot></slot>

@@ -15,62 +15,79 @@
         <h1>
             n-components
         </h1>
-        <p>Light-weight web components for use with vanilla HTML, JS and CSS.</p>
+        <p>Light-weight, simple web components for use with vanilla HTML, JS and CSS.</p>
     </header>
     <p style="margin-left: 5%; margin-right: 5%;">Import the latest version of <b>n-components</b> into your vanilla static HTML file using:</p>
-    <div class="code" style="padding-bottom: 5px; margin-bottom: 50px; margin-left: 5%; margin-right: 5%; text-align: center;">&lt;<span class="html-red">script</span> <span class="html-orange">src=</span><span class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span class="html-red">script</span>&gt;</div>
-    <p class="sec">You want some buttons? We have some cool, customizable buttons.</p>
+    <div class="code" style="padding-bottom: 5px; margin-left: 5%; margin-right: 5%; text-align: center; margin-bottom: 0;">&lt;<span class="html-red">script</span> <span class="html-orange">src=</span><span class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span class="html-red">script</span>&gt;</div>
+    <p style="margin-bottom: 50px;">Then, simply call any of the below <b>n-components</b> to get started.</p>
+    <p class="sec">You want some buttons? We have some cool, customizable <span class="html-red"><b>n-</b>button</span>s.</p>
     <div class="components-grid">
         <div class="component-card">
             <div class="component-header">
                 <h3>Base Buttons</h3>
+                <p>Input:</p>
                 <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">variant=</span><span class="html-green">"info"</span>&gt;<pre>More Info</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <p>Output:</p>
                 <n-button variant="info">More Info</n-button>
             </div>
+            <p>Examples:</p>
             <div class="button-grid">
                 <n-button variant="normal">Normal</n-button>
                 <n-button variant="info">Info</n-button>
                 <n-button variant="warning">Warning</n-button>
                 <n-button variant="alert">Alert</n-button>
+                <n-button variant="success">Success</n-button>
             </div>
         </div>
         <div class="component-card">
             <div class="component-header">
                 <h3>Thin Buttons</h3>
+                <p>Input:</p>
                 <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">variant=</span><span class="html-green">"warning"</span>&nbsp;<span class="html-orange">thin</span>&gt;<pre>A warning!</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <p>Output:</p>
                 <n-button variant="warning" thin>A warning!</n-button>
             </div>
+            <p>Examples:</p>
             <div class="button-grid">
                 <n-button variant="normal" thin>Thin</n-button>
                 <n-button variant="info" thin>Thin</n-button>
                 <n-button variant="warning" thin>Thin</n-button>
                 <n-button variant="alert" thin>Thin</n-button>
+                <n-button variant="success" thin>Thin</n-button>
             </div>
         </div>
         <div class="component-card">
             <div class="component-header">
                 <h3>Thick Buttons</h3>
+                <p>Input:</p>
                 <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">thick</span>&gt;<pre>Play</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <p>Output:</p>
                 <n-button thick>Play</n-button>
             </div>
+            <p>Examples:</p>
             <div class="button-grid">
                 <n-button variant="normal" thick>Thick</n-button>
                 <n-button variant="info" thick>Thick</n-button>
                 <n-button variant="warning" thick>Thick</n-button>
                 <n-button variant="alert" thick>Thick</n-button>
+                <n-button variant="success" thick>Thick</n-button>
             </div>
         </div>
         <div class="component-card">
             <div class="component-header">
                 <h3>Outlined Buttons, w/ Dark Mode</h3>
+                <p>Input:</p>
                 <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">outlineOnly dark thin</span>&gt;<pre>Go!</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <p>Output:</p>
                 <n-button outlineOnly dark thin>Go!</n-button>
             </div>
+            <p>Examples:</p>
             <div class="button-grid">
                 <n-button variant="normal" outlineOnly dark>Outlined</n-button>
                 <n-button variant="info" outlineOnly dark>Outlined</n-button>
                 <n-button variant="warning" outlineOnly dark>Outlined</n-button>
                 <n-button variant="alert" outlineOnly dark>Outlined</n-button>
+                <n-button variant="success" outlineOnly dark>Outlined</n-button>
             </div>
         </div>
     </div>

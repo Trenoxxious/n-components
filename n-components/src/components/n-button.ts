@@ -9,56 +9,77 @@ export class NButton extends LitElement {
         thin: { type: Boolean },
         thick: { type: Boolean },
         outlineOnly: { type: Boolean },
+        rounded: { type: Boolean },
+        sharp: { type: Boolean },
         scaleHover: { type: Boolean },
+        dark: { type: Boolean },
     };
 
-    variant: 'primary' | 'secondary' | 'warning' = 'primary';
+    variant: 'normal' | 'info' | 'warning' | 'alert' = 'normal';
     thin = false;
     thick = false;
     outlineOnly = false;
     scaleHover = false;
+    rounded = false;
+    sharp = false;
+    dark = false;
     animation: 'fast' | 'normal' | 'slow' | 'extra-slow' = 'normal';
 
     static styles = css`
         button {
             padding: 8px 16px;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 400;
+            border-radius: 2px;
             transition: all;
             animation-duration: 0.3s;
+            min-width: 100px;
         }
 
-        button.primary {
+        button.info {
             background-color: #007bff;
             color: white;
             border: 1px solid #2c92ffff;
         }
 
-        button.primary:hover {
-            background-color: #0056b3;
+        button.info:hover {
+            background-color: #268fffff;
+            border: 1px solid #4da3ffff;
         }
 
-        button.secondary {
-            background-color: #f0f0f0;
-            color: #333;
+        button.normal {
+            background-color: #e0e0e0;
+            color: #242424ff;
             border: 1px solid #ddd;
         }
 
-        button.secondary:hover {
-            background-color: #e0e0e0;
+        button.normal:hover {
+            background-color: #f5f5f5ff;
+            border: 1px solid #ffffffff;
         }
 
         button.warning {
-            background-color: rgba(233, 100, 23, 1);
+            background-color: rgba(241, 132, 7, 1);
             color: white;
             border: 1px solid rgba(248, 142, 42, 1);
         }
 
         button.warning:hover {
-            background-color: rgba(248, 177, 44, 1);
+            background-color: rgba(240, 162, 16, 1);
+            border: 1px solid rgba(255, 184, 53, 1);
+        }
+
+        button.alert {
+            background-color: rgba(233, 30, 23, 1);
+            color: white;
+            border: 1px solid rgba(248, 49, 42, 1);
+        }
+
+        button.alert:hover {
+            background-color: rgba(248, 44, 44, 1);
+            border: 1px solid rgba(255, 76, 76, 1);
         }
 
         button.thin {
@@ -93,6 +114,14 @@ export class NButton extends LitElement {
             transition: all 1s;
         }
 
+        .rounded {
+            border-radius: 4px;
+        }
+
+        .sharp {
+            border-radius: 0;
+        }
+
         @media screen and (width <= 1024px) {
             button {
                 font-size: 12px;
@@ -101,6 +130,11 @@ export class NButton extends LitElement {
     `;
 
     render() {
-        return html`<button class="${this.variant}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleHover ? ' scale-hover' : ''} animation-${this.animation}"><slot></slot></button>`;
+        const color = this.variant === 'normal' && this.dark ? 'white' : '';
+        return html`<button 
+            class="${this.variant}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
+            style="${color ? `color: ${color}` : ''}">
+            <slot></slot>
+        </button>`;
     }
 }

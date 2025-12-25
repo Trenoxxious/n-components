@@ -67,18 +67,94 @@ header p {
     font-weight: 400;
 }
 
-.display-sec {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 10px;
+.components-grid {
+    font-family: "Manjari", sans-serif, system-ui;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.display-row {
+.component-card {
     display: flex;
-    flex-direction: row;
-    gap: 5px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(36, 36, 36, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.2s ease;
+}
+
+.component-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.component-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: "Manjari", sans-serif, system-ui;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+    background: rgba(24, 38, 51, 0.4);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.button-grid n-button {
+    padding: 8px;
+}
+
+.code {
+    text-wrap: nowrap;
+    overflow-x: auto;
+    display: inline flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 5px 0 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    font-size: 1rem;
+    height: 25px;
+    color: rgba(194, 194, 194, 1);
+    font-weight: 500;
+}
+
+.code span {
+    text-wrap: nowrap;
+}
+
+.html-red {
+    color: rgba(226, 47, 47, 1);
+}
+
+.html-orange {
+    color: rgba(226, 104, 47, 1);
+}
+
+.html-green {
+    color: rgba(101, 255, 121, 1);
+}
+
+.w-full {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: stretch;
 }
 
 @media (prefers-color-scheme: light) {

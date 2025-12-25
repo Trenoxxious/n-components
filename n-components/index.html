@@ -18,15 +18,65 @@
         <p>Light-weight web components for use with vanilla HTML, JS and CSS.</p>
     </header>
     <p class="sec">You want some buttons? We have some cool buttons.</p>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
-        <div class="display-sec">
-            <div>
-                Base Buttons:
+    <div class="components-grid">
+        <div class="component-card">
+            <div class="component-header">
+                <h3>Base Buttons</h3>
+                <div class="w-full" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px;">
+                    <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">variant=</span><span class="html-green">"info"</span>&gt;More Info&lt;/<span class="html-red">n-button</span>&gt;</div>
+                    <n-button variant="info">More Info</n-button>
+                </div>
             </div>
-            <div class="display-row">
-                <n-button variant="primary">Primary</n-button>
-                <n-button variant="secondary">Secondary</n-button>
+            <div class="button-grid">
+                <n-button variant="normal">Normal</n-button>
+                <n-button variant="info">Info</n-button>
                 <n-button variant="warning">Warning</n-button>
+                <n-button variant="alert">Alert</n-button>
+            </div>
+        </div>
+        <div class="component-card">
+            <div class="component-header">
+                <h3>Thin Buttons</h3>
+                <div class="w-full" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px;">
+                    <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">variant=</span><span class="html-green">"warning"</span>&nbsp;<span class="html-orange">thin</span>&gt;A warning!&lt;/<span class="html-red">n-button</span>&gt;</div>
+                    <n-button variant="warning" thin>A warning!</n-button>
+                </div>
+            </div>
+            <div class="button-grid">
+                <n-button variant="normal" thin>Thin</n-button>
+                <n-button variant="info" thin>Thin</n-button>
+                <n-button variant="warning" thin>Thin</n-button>
+                <n-button variant="alert" thin>Thin</n-button>
+            </div>
+        </div>
+        <div class="component-card">
+            <div class="component-header">
+                <h3>Thick Buttons</h3>
+                <div class="w-full" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px;">
+                    <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">thick</span>&gt;Play&lt;/<span class="html-red">n-button</span>&gt;</div>
+                    <n-button thick>Play</n-button>
+                </div>
+            </div>
+            <div class="button-grid">
+                <n-button variant="normal" thick>Thick</n-button>
+                <n-button variant="info" thick>Thick</n-button>
+                <n-button variant="warning" thick>Thick</n-button>
+                <n-button variant="alert" thick>Thick</n-button>
+            </div>
+        </div>
+        <div class="component-card">
+            <div class="component-header">
+                <h3>Outlined Buttons, w/ Dark Mode</h3>
+                <div class="w-full" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px;">
+                    <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">outlineOnly dark thin</span>&gt;Go!&lt;/<span class="html-red">n-button</span>&gt;</div>
+                    <n-button outlineOnly dark thin>Go!</n-button>
+                </div>
+            </div>
+            <div class="button-grid">
+                <n-button variant="normal" outlineOnly dark>Outlined</n-button>
+                <n-button variant="info" outlineOnly dark>Outlined</n-button>
+                <n-button variant="warning" outlineOnly dark>Outlined</n-button>
+                <n-button variant="alert" outlineOnly dark>Outlined</n-button>
             </div>
         </div>
     </div>

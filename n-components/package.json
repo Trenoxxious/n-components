@@ -1,7 +1,10 @@
 {
   "name": "n-components",
-  "private": true,
-  "version": "0.0.0",
+  "description": "Customizable components for use with vanilla HTML, Javascript and CSS.",
+  "private": false,
+  "version": "1.0.0",
+  "repository": "github:Trenoxxious/n-components",
+  "keywords": ["web-components", "lit-element"],
   "type": "module",
   "exports": {
     ".": "./src/index.ts",

@@ -227,7 +227,7 @@ pre {
 }
 
 .slosh {
-    animation: pop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1, slosh 2s ease-in-out 3;
+    animation: pop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1, slosh 6s ease-in-out 1;
 }
 
 .copy-button {
@@ -270,9 +270,55 @@ pre {
     }
 }
 
-@keyframes slosh {
+/* @keyframes slosh {
     50% {
         --degrees: 3deg;
+    }
+} */
+
+@keyframes slosh {
+    0% {
+        --degrees: 12deg;
+    }
+
+    10% {
+        --degrees: 0deg;
+    }
+
+    20% {
+        --degrees: 8deg;
+    }
+
+    30% {
+        --degrees: 0deg;
+    }
+
+    40% {
+        --degrees: 6deg;
+    }
+
+    50% {
+        --degrees: 0deg;
+    }
+
+    60% {
+        --degrees: 4deg;
+    }
+
+    70% {
+        --degrees: 0deg;
+    }
+
+    80% {
+        --degrees: 3deg;
+    }
+
+    90% {
+        --degrees: 0deg;
+    }
+
+    100% {
+        --degrees: 2deg;
     }
 }
 

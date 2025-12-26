@@ -38,6 +38,17 @@ export default defineConfig({
             }
         },
         {
+            name: 'copy-root-html',
+            apply: 'build',
+            generateBundle() {
+                const src = path.resolve(__dirname, 'index.html');
+                const dest = path.resolve(__dirname, 'dist/index.html');
+                if (fs.existsSync(src)) {
+                    fs.copyFileSync(src, dest);
+                }
+            }
+        },
+        {
             name: 'rewrite-html-for-prod',
             apply: 'build',
             writeBundle() {

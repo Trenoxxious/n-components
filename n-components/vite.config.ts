@@ -8,6 +8,7 @@ export default defineConfig({
             fileName: (format) => `n-components.${format === 'umd' ? 'umd' : 'es'}.js`,
             formats: ['umd', 'es']
         },
-        outDir: 'dist'
+        outDir: 'dist',
+        copyPublicDir: true
     }
 });

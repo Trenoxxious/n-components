@@ -47,6 +47,8 @@ export default defineConfig({
                     /<script type="module">\s*import\('\.\/src\/index\.ts'\).*?<\/script>/s,
                     '<script src="n-components.umd.js"><\/script>'
                 );
+                html = html.replace(/href="\.\/src\/index\.css"/g, 'href="index.css"');
+                html = html.replace(/href="\.\/src\/one-dark\.css"/g, 'href="one-dark.css"');
                 fs.writeFileSync(indexPath, html);
             }
         }

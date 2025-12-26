@@ -30,7 +30,8 @@
             class="html-red">script</span>&gt;</div>
     <p style="margin-bottom: 50px;">Then, simply call any of the below <b>n-components</b> to get started.</p>
     <p class="sec" style="margin-left: 5%; margin-right: 5%;">You want some buttons? We have some cool, customizable
-        <span class="html-red"><b>n-</b>button</span>s.</p>
+        <span class="html-red"><b>n-</b>button</span>s.
+    </p>
     <div class="components-grid" style="margin-bottom: 50px;">
         <div class="component-card">
             <div class="component-header">
@@ -55,6 +56,16 @@
                 <p>Mix and match any of these component variables.</p>
             </div>
             <div class="button-grid-3">
+                <div>
+                    <div class="code html-orange">variant=<span class="html-green">"info"</span></div>
+                    <div>Button theme type.</div>
+                    <n-button variant="info">Button</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">normal, info, warning, alert,
+                                success</span></p>
+                        <p style="font-size: 12px;">Default: <span class="sub-text">normal</span></p>
+                    </div>
+                </div>
                 <div>
                     <div class="code html-orange">dontPunch</div>
                     <div>Won't react to clicks.</div>
@@ -86,6 +97,8 @@
                     <div>The largest button variant.</div>
                     <n-button thick>Thick Button</n-button>
                     <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Overrides: <span class="html-orange">thin</span>
+                        </p>
                         <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
                     </div>
                 </div>
@@ -122,7 +135,27 @@
                     <div>Colors background and border.</div>
                     <n-button bgColor="#cd50ec">Custom</n-button>
                     <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid color string</span>
+                        </p>
                         <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">rounded</div>
+                    <div>Rounds the corners.</div>
+                    <n-button rounded>Rounded</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">sharp</div>
+                    <div>Sharpens the corners.</div>
+                    <n-button sharp>Sharp</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Overrides: <span class="html-orange">rounded</span>
+                        </p>
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ export class NButton extends LitElement {
         outlineOnly: { type: Boolean },
         rounded: { type: Boolean },
         sharp: { type: Boolean },
-        scaleHover: { type: Boolean },
+        scaleOnHover: { type: Boolean },
         dark: { type: Boolean },
         bgColor: { type: String },
         borderColor: { type: String },
@@ -36,7 +36,7 @@ export class NButton extends LitElement {
     thin = false;
     thick = false;
     outlineOnly = false;
-    scaleHover = false;
+    scaleOnHover = false;
     rounded = false;
     sharp = false;
     dark = false;
@@ -203,7 +203,7 @@ export class NButton extends LitElement {
             aria-label="${this.ariaLabel || ''}"
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
-            class="${this.variant}${this.bgColor || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
+            class="${this.variant}${this.bgColor || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleOnHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
             style="${color ? `color: ${color}; ` : ''}${bgColor && !this.outlineOnly ? `background-color: ${bgColor}; ` : ``}${bgColor && !borderColor ? `border: 1px solid color-mix(in hsl, ${bgColor} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}">
             <slot></slot>
         </button>`;

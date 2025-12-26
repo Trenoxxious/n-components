@@ -21,18 +21,24 @@
         </h1>
         <p>Light-weight, simple web components for use with vanilla HTML, JS and CSS.</p>
     </header>
-    <p style="margin-left: 5%; margin-right: 5%;">Import the latest version of <b>n-components</b> into your vanilla static HTML file using:</p>
-    <div class="code" style="padding-bottom: 5px; margin-left: 5%; margin-right: 5%; text-align: center; margin-bottom: 0;">&lt;<span class="html-red">script</span> <span class="html-orange">src=</span><span class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span class="html-red">script</span>&gt;</div>
+    <p style="margin-left: 5%; margin-right: 5%;">Import the latest version of <b>n-components</b> into your vanilla
+        static HTML file using:</p>
+    <div class="code"
+        style="padding-bottom: 5px; margin-left: 5%; margin-right: 5%; text-align: center; margin-bottom: 0;">&lt;<span
+            class="html-red">script</span> <span class="html-orange">src=</span><span
+            class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span
+            class="html-red">script</span>&gt;</div>
     <p style="margin-bottom: 50px;">Then, simply call any of the below <b>n-components</b> to get started.</p>
-    <p class="sec">You want some buttons? We have some cool, customizable <span class="html-red"><b>n-</b>button</span>s.</p>
-    <div class="components-grid">
+    <p class="sec" style="margin-left: 5%; margin-right: 5%;">You want some buttons? We have some cool, customizable
+        <span class="html-red"><b>n-</b>button</span>s.</p>
+    <div class="components-grid" style="margin-bottom: 50px;">
         <div class="component-card">
             <div class="component-header">
                 <h3>Base Buttons</h3>
                 <p>Input:</p>
-                <pre><code class="language-html">&lt;n-button variant="info"&gt;More Info&lt;/n-button&gt;</code></pre>
+                <pre><code class="language-html">&lt;n-button&gt;Button&lt;/n-button&gt;</code></pre>
                 <p>Output:</p>
-                <n-button variant="info">More Info</n-button>
+                <n-button>Button</n-button>
             </div>
             <p>Examples:</p>
             <div class="button-grid">
@@ -44,6 +50,83 @@
             </div>
         </div>
         <div class="component-card">
+            <div class="component-header">
+                <h3>Button Settings</h3>
+                <p>Mix and match any of these component variables.</p>
+            </div>
+            <div class="button-grid-3">
+                <div>
+                    <div class="code html-orange">dontPunch</div>
+                    <div>Won't react to clicks.</div>
+                    <n-button dontPunch>Button</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">scaleOnHover</div>
+                    <div>Scales when hovered.</div>
+                    <n-button scaleOnHover>Scales!</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">animation=<span class="html-green">"fast"</span></div>
+                    <div>Control most animation speeds.</div>
+                    <n-button animation="fast">Fast Button</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">fast, normal, slow or
+                                very-slow</span></p>
+                        <p style="font-size: 12px;">Default: <span class="sub-text">normal</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">thick</div>
+                    <div>The largest button variant.</div>
+                    <n-button thick>Thick Button</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">thin</div>
+                    <div>The smallest button variant.</div>
+                    <n-button thin>Thin Button</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">dark</div>
+                    <div>Colors button text lighter.</div>
+                    <n-button dark>Dark Mode</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Typically combined with <span class="html-orange">outlineOnly</span>
+                            or
+                            <span class="html-orange">dark</span>.
+                        </p>
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">outlineOnly</div>
+                    <div>Colors button text lighter.</div>
+                    <n-button outlineOnly dark>Outline</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">bgColor=<span class="html-green">"#cd50ec"</span></div>
+                    <div>Colors background and border.</div>
+                    <n-button bgColor="#cd50ec">Custom</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="component-card">
             <div class="component-header">
                 <h3>Thin Buttons</h3>
                 <p>Input:</p>
@@ -93,8 +176,8 @@
                 <n-button variant="alert" outlineOnly dark>Outlined</n-button>
                 <n-button variant="success" outlineOnly dark>Outlined</n-button>
             </div>
+        </div> -->
         </div>
-    </div>
 </body>
 
 </html>

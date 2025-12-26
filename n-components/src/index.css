@@ -88,7 +88,7 @@ b {
 .components-grid {
     font-family: "Manjari", sans-serif, system-ui;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr 2fr;
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
@@ -131,6 +131,20 @@ b {
     background: rgba(24, 38, 51, 0.4);
     border: 1px dashed rgba(255, 255, 255, 0.1);
     border-radius: 4px;
+}
+
+.button-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 16px;
+    background: rgba(24, 38, 51, 0.4);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    gap: 15px;
+}
+
+.sub-text {
+    color: rgba(255, 255, 255, 0.66);
 }
 
 .button-grid n-button {
@@ -200,5 +214,13 @@ pre {
 
     .sec {
         font-size: 1.25rem;
+    }
+
+    .components-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

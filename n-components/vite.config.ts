@@ -3,7 +3,6 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import * as fs from 'fs';
 import * as path from 'path';
-import fullReload from 'vite-plugin-full-reload';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -52,7 +51,6 @@ export default defineConfig({
                 html = html.replace(/href="\.\/src\/one-dark\.css"/g, 'href="one-dark.css"');
                 fs.writeFileSync(indexPath, html);
             }
-        },
-        fullReload(['./public/**', './index.html']),
+        }
     ]
 });

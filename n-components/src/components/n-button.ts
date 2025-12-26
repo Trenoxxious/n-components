@@ -41,7 +41,7 @@ export class NButton extends LitElement {
     sharp = false;
     dark = false;
     dontPunch = false;
-    animation: 'fast' | 'normal' | 'slow' | 'extra-slow' = 'normal';
+    animation: 'fast' | 'normal' | 'slow' | 'very-slow' = 'normal';
     // Standard HTML button attributes
     type = 'button';
     id = '';
@@ -165,7 +165,7 @@ export class NButton extends LitElement {
             transition: all 0.45s;
         }
 
-        .animation-extra-slow {
+        .animation-very-slow {
             transition: all 1s;
         }
 

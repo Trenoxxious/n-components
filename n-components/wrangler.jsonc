@@ -1,0 +1,5 @@
+{
+    "name": "n-components",
+    "compatibility_date": "2025-12-26",
+    "main": "src/index.ts"
+}

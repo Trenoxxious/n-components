@@ -32,6 +32,7 @@ body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='67' height='67' fill-opacity='0.21' fill='%23022236'/%3E%3C/svg%3E");
 }
 
 header {
@@ -58,6 +59,11 @@ header h1 {
     -webkit-text-stroke-width: 2px;
     overflow: hidden;
     text-wrap: nowrap;
+}
+
+header h2 {
+    font-family: "Manjari", sans-serif, system-ui;
+    font-weight: 200;
 }
 
 header p {
@@ -107,10 +113,10 @@ b {
     flex-direction: column;
     gap: 16px;
     padding: 12px;
-    background: rgba(36, 36, 36, 0.6);
+    background: rgba(36, 36, 36, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgb(80, 131, 172, 0.05) inset;
     transition: border-color 0.2s ease;
 }
 
@@ -164,6 +170,7 @@ b {
     background: hsl(220, 13%, 18%);
     overflow: hidden;
     padding: 5px;
+    margin-bottom: 10px;
 }
 
 pre {

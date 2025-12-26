@@ -106,7 +106,7 @@ b {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 24px;
+    padding: 12px;
     background: rgba(36, 36, 36, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 4px;
@@ -159,19 +159,11 @@ b {
 }
 
 .code {
+    height: 25px;
     font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-    text-wrap: nowrap;
-    text-align: center;
-    overflow-x: auto;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 5px 5px 0 5px;
     background: hsl(220, 13%, 18%);
-    border-radius: 4px;
-    font-size: 1rem;
-    color: rgba(194, 194, 194, 1);
-    font-weight: 500;
-    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 5px;
 }
 
 pre {
@@ -181,6 +173,24 @@ pre {
 
 .code span {
     text-wrap: nowrap;
+}
+
+.code-content {
+    text-wrap: nowrap;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: rgba(194, 194, 194, 1);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-x: auto;
 }
 
 .html-red {
@@ -195,6 +205,10 @@ pre {
     color: rgba(101, 255, 121, 1);
 }
 
+.html-gray {
+    color: rgb(182, 182, 182);
+}
+
 .w-full {
     width: -webkit-fill-available;
     width: -moz-available;
@@ -206,7 +220,7 @@ pre {
 }
 
 .slosh {
-    animation: pop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1, slosh 1.5s ease-in-out 3;
+    animation: pop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1, slosh 2s ease-in-out 3;
 }
 
 .copy-button {
@@ -257,13 +271,12 @@ pre {
 
 @media screen and (width < 1050px) {
     header h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
         -webkit-text-stroke-width: 1px;
-        background-image: linear-gradient(2deg, rgb(255, 255, 255) 39%, transparent 39.5%);
     }
 
     header p {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .sec {
@@ -278,5 +291,9 @@ pre {
 
     .button-grid-3 {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .code-content {
+        justify-content: flex-start;
     }
 }

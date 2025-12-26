@@ -32,7 +32,7 @@
                         header.classList.remove('slosh');
                         header.classList.add('ready-for-slosh');
                         sloshed = false;
-                    }, 4500);
+                    }, 6000);
                 }
             });
         </script>
@@ -42,10 +42,13 @@
         vanilla
         HTML file using:</p>
     <div class="code"
-        style="padding-bottom: 5px; margin-left: 5%; margin-right: 5%; text-align: center; margin-bottom: 0; position: relative;">
-        &lt;<span class="html-red">script</span> <span class="html-orange">src=</span><span
-            class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span
-            class="html-red">script</span>&gt;
+        style="padding-bottom: 5px; margin-left: 5%; margin-right: 5%; margin-bottom: 0; position: relative;">
+        <div class="code-content w-full">
+            &lt;<span class="html-red">script</span>&nbsp;<span class="html-orange">src<span
+                    class="html-gray">=</span></span><span
+                class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span
+                class="html-red">script</span>&gt;
+        </div>
         <div id="copy-import" class="copy-button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1rem" height="1rem"
                 fill="currentColor">
@@ -54,14 +57,15 @@
             </svg>
         </div>
     </div>
-    <p style="margin-bottom: 50px;">Then, simply call any of the below <b>n-components</b> to get started.</p>
+    <p style="margin-bottom: 50px; margin-top: 10px;">Then, simply call any of the below <b>n-components</b> to get
+        started.</p>
     <p class="sec" style="margin-left: 5%; margin-right: 5%;">You want some buttons? We have some cool, customizable
         <span class="html-red"><b>n-</b>button</span>s.
     </p>
     <div class="components-grid" style="margin-bottom: 50px;">
         <div class="component-card">
             <div class="component-header">
-                <h3>Base Buttons</h3>
+                <h3>Base <span class="html-red">n-button</span></h3>
                 <p>Input:</p>
                 <pre><code class="language-html">&lt;n-button&gt;Button&lt;/n-button&gt;</code></pre>
                 <p>Output:</p>
@@ -74,19 +78,20 @@
                 <n-button variant="warning">Warning</n-button>
                 <n-button variant="alert">Alert</n-button>
                 <n-button variant="success">Success</n-button>
-                <n-button animation="very-slow" scaleOnHover variant="warning">Cancel</n-button>
+                <n-button animation="very-slow" variant="alert">Cancel</n-button>
                 <n-button bgColor="rgba(79, 224, 188, 1)" animation="fast">Sign Up</n-button>
                 <n-button outlineOnly dark animation="fast" scaleOnHover dontPunch>Dark Mode</n-button>
             </div>
         </div>
         <div class="component-card">
             <div class="component-header">
-                <h3>Button Settings</h3>
+                <h3><span class="html-red">n-button</span> Settings</h3>
                 <p>Mix and match any of these component variables.</p>
             </div>
             <div class="button-grid-3">
                 <div>
-                    <div class="code html-orange">variant=<span class="html-green">"info"</span></div>
+                    <div class="code html-orange">variant<span class="html-gray">=</span><span
+                            class="html-green">"info"</span></div>
                     <div>Button theme type.</div>
                     <n-button variant="info">Button</n-button>
                     <div style="margin-top: 10px;">
@@ -112,7 +117,8 @@
                     </div>
                 </div>
                 <div>
-                    <div class="code html-orange">animation=<span class="html-green">"fast"</span></div>
+                    <div class="code html-orange">animation<span class="html-gray">=</span><span
+                            class="html-green">"fast"</span></div>
                     <div>Control most animation speeds.</div>
                     <n-button animation="fast">Fast Button</n-button>
                     <div style="margin-top: 10px;">
@@ -160,7 +166,8 @@
                     </div>
                 </div>
                 <div>
-                    <div class="code html-orange">bgColor=<span class="html-green">"#cd50ec"</span></div>
+                    <div class="code html-orange">bgColor<span class="html-gray">=</span><span
+                            class="html-green">"#cd50ec"</span></div>
                     <div>Colors background and border.</div>
                     <n-button bgColor="#cd50ec">Custom</n-button>
                     <div style="margin-top: 10px;">

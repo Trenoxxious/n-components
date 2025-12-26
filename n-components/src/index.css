@@ -72,6 +72,11 @@ b {
     font-family: "Cal Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+::selection {
+    color: hsla(187, 83%, 62%, 1.00);
+    background: hsla(286, 36%, 46%, 1.00);
+}
+
 .sec {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -140,12 +145,11 @@ b {
     justify-content: flex-start;
     align-items: center;
     padding: 5px 5px 0 5px;
-    background: rgba(255, 255, 255, 0.05);
+    background: hsl(220, 13%, 18%);
     border-radius: 4px;
     font-size: 1rem;
     color: rgba(194, 194, 194, 1);
     font-weight: 500;
-    border: 1px dotted rgba(255, 255, 255, 0.25);
     margin-bottom: 15px;
 }
 
@@ -176,12 +180,12 @@ pre {
     width: stretch;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
         background-color: #ffffff;
     }
-}
+} */
 
 @media screen and (width < 1050px) {
     header h1 {

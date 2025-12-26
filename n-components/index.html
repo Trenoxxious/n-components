@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>n-components</title>
     <link rel="stylesheet" href="./src/index.css" />
+    <link rel="stylesheet" href="./src/one-dark.css" />
     <script type="module" src="/src/index.ts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +28,7 @@
             <div class="component-header">
                 <h3>Base Buttons</h3>
                 <p>Input:</p>
-                <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">variant=</span><span class="html-green">"info"</span>&gt;<pre>More Info</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <pre><code class="language-html">&lt;n-button variant="info"&gt;More Info&lt;/n-button&gt;</code></pre>
                 <p>Output:</p>
                 <n-button variant="info">More Info</n-button>
             </div>
@@ -43,7 +45,7 @@
             <div class="component-header">
                 <h3>Thin Buttons</h3>
                 <p>Input:</p>
-                <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">variant=</span><span class="html-green">"warning"</span>&nbsp;<span class="html-orange">thin</span>&gt;<pre>A warning!</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <pre><code class="language-html">&lt;n-button variant="warning" thin&gt;A warning!&lt;/n-button&gt;</code></pre>
                 <p>Output:</p>
                 <n-button variant="warning" thin>A warning!</n-button>
             </div>
@@ -60,7 +62,7 @@
             <div class="component-header">
                 <h3>Thick Buttons</h3>
                 <p>Input:</p>
-                <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">thick</span>&gt;<pre>Play</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <pre><code class="language-html">&lt;n-button thick&gt;Play&lt;/n-button&gt;</code></pre>
                 <p>Output:</p>
                 <n-button thick>Play</n-button>
             </div>
@@ -77,7 +79,7 @@
             <div class="component-header">
                 <h3>Outlined Buttons, w/ Dark Mode</h3>
                 <p>Input:</p>
-                <div class="code w-full">&lt;<span class="html-red">n-button</span>&nbsp;<span class="html-orange">outlineOnly dark thin</span>&gt;<pre>Go!</pre>&lt;/<span class="html-red">n-button</span>&gt;</div>
+                <pre><code class="language-html">&lt;n-button outlineOnly dark thin&gt;Go!&lt;/n-button&gt;</code></pre>
                 <p>Output:</p>
                 <n-button outlineOnly dark thin>Go!</n-button>
             </div>

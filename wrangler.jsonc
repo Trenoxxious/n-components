@@ -1,0 +1,5 @@
+{
+    "name": "service-worker",
+    "compatibility_date": "2025-12-26",
+    "main": "n-components/src/index.ts"
+}

@@ -14,6 +14,7 @@ export class NButton extends LitElement {
         scaleOnHover: { type: Boolean },
         dark: { type: Boolean },
         bgColor: { type: String },
+        textColor: { type: String },
         borderColor: { type: String },
         dontPunch: { type: Boolean },
         // Standard HTML button attributes
@@ -58,6 +59,7 @@ export class NButton extends LitElement {
     ariaPressed = '';
     bgColor = '';
     borderColor = '';
+    textColor = '';
 
     static styles = css`
         button {
@@ -187,7 +189,8 @@ export class NButton extends LitElement {
     render() {
         const color = (this.variant === 'normal' || this.variant === 'success') && this.dark ? this.variant === 'normal' ? 'white' : '#2cff72ff' : '';
         const bgColor = (this.variant === 'normal' && this.bgColor !== '') ? this.bgColor : null;
-        const borderColor = (this.variant === 'normal' && this.borderColor !== '') ? this.borderColor : null;
+        const borderColor = this.borderColor || null;
+        const textColor = this.textColor || null;
 
         return html`<button 
             type="${this.type}"
@@ -204,7 +207,7 @@ export class NButton extends LitElement {
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
             class="${this.variant}${this.bgColor || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleOnHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
-            style="${color ? `color: ${color}; ` : ''}${bgColor && !this.outlineOnly ? `background-color: ${bgColor}; ` : ``}${bgColor && !borderColor ? `border: 1px solid color-mix(in hsl, ${bgColor} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}">
+            style="${color ? `color: ${color}; ` : ''}${bgColor && !this.outlineOnly ? `background-color: ${bgColor}; ` : ``}${bgColor && !borderColor ? `border: 1px solid color-mix(in hsl, ${bgColor} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}${textColor ? `color: ${textColor}; ` : ``}">
             <slot></slot>
         </button>`;
     }

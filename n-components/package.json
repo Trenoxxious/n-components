@@ -2,7 +2,7 @@
     "name": "@trenoxxious/n-components",
     "description": "Customizable components for use with vanilla HTML, Javascript and CSS.",
     "private": false,
-    "version": "1.0.7",
+    "version": "1.0.8",
     "repository": "github:Trenoxxious/n-components",
     "keywords": [
         "web-components",

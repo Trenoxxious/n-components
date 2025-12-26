@@ -18,5 +18,7 @@ There are several options for n-button components, including:
 | ***thin*** | Sets the padding low on the button. | false | true, false |
 | ***dark*** | Sets the button text to white. | false | true, false |
 | ***bgColor*** | Sets the button's background color. | null | Any CSS-valid color string |
+| ***borderColor*** | Sets the button's border color. | null | Any CSS-valid color string |
+| ***textColor*** | Sets the button's text color. | null | Any CSS-valid color string |
 | ***rounded*** | Rounds the button corners a little more. | false | true, false |
 | ***sharp*** | Sharpens the button corners. | false | true, false |

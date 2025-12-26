@@ -19,7 +19,7 @@
         <h1 style="rotate: -2deg;" class="ready-for-slosh">
             n-components!
         </h1>
-        <h2>Stable Release v1.0.5</h2>
+        <h2 style="font-size: 1rem;">Stable Release Version: <span class="html-green">v1.0.5</span></h2>
         <script>
             const header = document.querySelector('header h1');
             let sloshed = false;
@@ -37,7 +37,7 @@
                 }
             });
         </script>
-        <p>Light-weight, simple web components for use with vanilla HTML, JS and CSS.</p>
+        <p>Simple, lightweight web components for use with vanilla HTML, JS and CSS.</p>
     </header>
     <p style="margin-left: 5%; margin-right: 5%;">Import the latest version of <b>n-components</b> into your static
         vanilla
@@ -58,7 +58,8 @@
             </svg>
         </div>
     </div>
-    <p style="margin-bottom: 50px; margin-top: 10px;">Then, simply call any of the below <b>n-components</b> to get
+    <p style="margin-left: 5%; margin-right: 5%; margin-bottom: 50px; margin-top: 10px;">Then, simply call any of the
+        below <b>n-components</b> to get
         started.</p>
     <p class="sec" style="margin-left: 5%; margin-right: 5%;">You want some buttons? We have some cool, customizable
         <span class="html-red"><b>n-</b>button</span>s.
@@ -171,6 +172,28 @@
                             class="html-green">"#cd50ec"</span></div>
                     <div>Colors background and border.</div>
                     <n-button bgColor="#cd50ec">Custom</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid color string</span>
+                        </p>
+                        <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">borderColor<span class="html-gray">=</span><span
+                            class="html-green">"#6518e0ff"</span></div>
+                    <div>Colors the button border.</div>
+                    <n-button borderColor="#6518e0ff">Border Color</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid color string</span>
+                        </p>
+                        <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code html-orange">textColor<span class="html-gray">=</span><span
+                            class="html-green">"#e04018ff"</span></div>
+                    <div>Colors the button's text.</div>
+                    <n-button textColor="#e04018" variant="info">Text Color</n-button>
                     <div style="margin-top: 10px;">
                         <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid color string</span>
                         </p>

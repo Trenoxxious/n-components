@@ -63,7 +63,8 @@ header h1 {
 
 header h2 {
     font-family: "Manjari", sans-serif, system-ui;
-    font-weight: 200;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 
 header p {
@@ -266,7 +267,7 @@ pre {
 
 @keyframes pop {
     50% {
-        scale: 1.1;
+        scale: 0.8;
     }
 }
 
@@ -278,6 +279,7 @@ pre {
 
 @keyframes slosh {
     0% {
+        filter: hue-rotate(300deg);
         --degrees: 12deg;
     }
 
@@ -318,6 +320,7 @@ pre {
     }
 
     100% {
+        filter: hue-rotate(0deg);
         --degrees: 2deg;
     }
 }

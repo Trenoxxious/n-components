@@ -13,6 +13,9 @@ export class NButton extends LitElement {
         sharp: { type: Boolean },
         scaleHover: { type: Boolean },
         dark: { type: Boolean },
+        bgColor: { type: String },
+        borderColor: { type: String },
+        dontPunch: { type: Boolean },
         // Standard HTML button attributes
         type: { type: String },
         id: { type: String },
@@ -37,6 +40,7 @@ export class NButton extends LitElement {
     rounded = false;
     sharp = false;
     dark = false;
+    dontPunch = false;
     animation: 'fast' | 'normal' | 'slow' | 'extra-slow' = 'normal';
     // Standard HTML button attributes
     type = 'button';
@@ -52,6 +56,8 @@ export class NButton extends LitElement {
     ariaLabel = '';
     ariaDescribedby = '';
     ariaPressed = '';
+    bgColor = '';
+    borderColor = '';
 
     static styles = css`
         button {
@@ -65,6 +71,11 @@ export class NButton extends LitElement {
             animation-duration: 0.3s;
             min-width: 100px;
             user-select: none;
+        }
+
+        button:not(.dont-punch):active {
+            transition: transform 0.15s linear;
+            scale: 0.97;
         }
 
         button.info {
@@ -138,6 +149,10 @@ export class NButton extends LitElement {
             transform: scale(1.05);
         }
 
+        button.custom-color:hover {
+            filter: brightness(1.1);
+        }
+
         .animation-fast {
             transition: all 0.10s;
         }
@@ -171,6 +186,9 @@ export class NButton extends LitElement {
 
     render() {
         const color = (this.variant === 'normal' || this.variant === 'success') && this.dark ? this.variant === 'normal' ? 'white' : '#2cff72ff' : '';
+        const bgColor = (this.variant === 'normal' && this.bgColor !== '') ? this.bgColor : null;
+        const borderColor = (this.variant === 'normal' && this.borderColor !== '') ? this.borderColor : null;
+
         return html`<button 
             type="${this.type}"
             ?disabled="${this.disabled}"
@@ -185,8 +203,8 @@ export class NButton extends LitElement {
             aria-label="${this.ariaLabel || ''}"
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
-            class="${this.variant}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
-            style="${color ? `color: ${color}` : ''}">
+            class="${this.variant}${this.bgColor || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
+            style="${color ? `color: ${color}; ` : ''}${bgColor && !this.outlineOnly ? `background-color: ${bgColor};` : ``}${bgColor && !borderColor ? `border: 1px solid color-mix(in hsl, ${bgColor} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}">
             <slot></slot>
         </button>`;
     }

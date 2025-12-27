@@ -104,12 +104,12 @@ b {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 5%;
     padding: 0 20px;
 }
 
 .component-card {
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -202,19 +202,19 @@ pre {
 }
 
 .html-red {
-    color: rgba(255, 84, 84, 1);
+    color: rgba(255, 84, 84, 1) !important;
 }
 
 .html-orange {
-    color: rgba(255, 158, 79, 1);
+    color: rgba(255, 158, 79, 1) !important;
 }
 
 .html-green {
-    color: rgba(101, 255, 121, 1);
+    color: rgba(101, 255, 121, 1) !important;
 }
 
 .html-gray {
-    color: rgb(182, 182, 182);
+    color: rgb(182, 182, 182) !important;
 }
 
 .w-full {
@@ -258,24 +258,11 @@ pre {
     color: rgba(255, 65, 65, 1);
 }
 
-/* @media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
-} */
-
 @keyframes pop {
     50% {
         scale: 0.8;
     }
 }
-
-/* @keyframes slosh {
-    50% {
-        --degrees: 3deg;
-    }
-} */
 
 @keyframes slosh {
     0% {
@@ -325,7 +312,13 @@ pre {
     }
 }
 
-@media screen and (width < 1050px) {
+@media screen and (width < 1280px) {
+    .button-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (width < 1024px) {
     header h1 {
         font-size: 3.5rem;
         -webkit-text-stroke-width: 1px;
@@ -339,17 +332,29 @@ pre {
         font-size: 1.25rem;
     }
 
-    .components-grid {
-        grid-template-columns: 1fr;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .button-grid-3 {
-        grid-template-columns: repeat(2, 1fr);
+    .button-grid {
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .code-content {
         justify-content: flex-start;
+    }
+
+    .button-grid-3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (width < 768px) {
+    .components-grid {
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2%;
+    }
+
+    header h1 {
+        font-size: 3.0rem;
+        -webkit-text-stroke-width: 1px;
     }
 }

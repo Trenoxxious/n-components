@@ -221,8 +221,15 @@ b {
 }
 
 pre {
+    padding: 0.5rem !important;
+    text-wrap: nowrap;
     text-align: left;
     margin-left: 25px;
+    overflow-x: auto;
+}
+
+code {
+    text-wrap: nowrap;
 }
 
 .code span {
@@ -407,6 +414,10 @@ pre {
         margin: 0 2%;
     }
 
+    .components-grid-full {
+        margin: 0 2%;
+    }
+
     header h1 {
         font-size: 3.0rem;
         -webkit-text-stroke-width: 1px;
@@ -420,5 +431,9 @@ pre {
 
     .component-header h3 {
         text-align: center;
+    }
+
+    .button-grid-4 {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

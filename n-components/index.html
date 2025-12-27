@@ -201,6 +201,18 @@
         const currentVersionNum = '1.0.0';
 
         currentVersionDisplay.innerText = currentVersionNum;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                if (document.querySelector('.socials-dash')) {
+                    document.querySelector('.socials-dash').classList.add('hide');
+                }
+            } else {
+                if (document.querySelector('.socials-dash')) {
+                    document.querySelector('.socials-dash').classList.remove('hide');
+                }
+            }
+        });
     </script>
 </body>
 

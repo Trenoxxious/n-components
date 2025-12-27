@@ -103,6 +103,8 @@ b {
 }
 
 .socials-dash {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
     position: fixed;
     display: flex;
     align-items: center;
@@ -111,6 +113,10 @@ b {
     top: 10px;
     right: 10px;
     z-index: 10;
+}
+
+.hide {
+    opacity: 0;
 }
 
 .sec {

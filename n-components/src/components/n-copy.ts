@@ -8,6 +8,7 @@ export class NCopy extends LitElement {
         copy: { type: String },
         position: { type: String },
         background: { type: String },
+        size: { type: String },
         // Standard HTML button attributes
         id: { type: String },
         style: { type: String },
@@ -22,6 +23,7 @@ export class NCopy extends LitElement {
     dark = false;
     copy = '';
     background = '';
+    size: "small" | "medium" | "large" = "small";
     // Standard HTML button attributes
     id = '';
     name = '';
@@ -33,8 +35,6 @@ export class NCopy extends LitElement {
     static styles = css`
         .copy-button {
             display: block;
-            width: 18px;
-            height: 18px;
             cursor: pointer;
             user-select: none;
             padding: 4px;
@@ -47,7 +47,14 @@ export class NCopy extends LitElement {
     `;
 
     render() {
+        let sizePx = '16px';
         let positionAttr = '';
+
+        if (this.size === "medium") {
+            sizePx = '24px';
+        } else if (this.size === "large") {
+            sizePx = '32px';
+        }
 
         switch (this.position) {
             case "top right":
@@ -90,7 +97,7 @@ export class NCopy extends LitElement {
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
             class="copy-button"
-            style="${positionAttr}${this.background !== '' ? ` background: ${this.background};` : ``}${this.style ? ` ${this.style}` : ``}">
+            style="${positionAttr}${` width: ${sizePx}; height: ${sizePx};`}${this.background !== '' ? ` background: ${this.background};` : ``}${this.style ? ` ${this.style}` : ``}">
             <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="${this.dark ? 'white' : 'black'}">
                 <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
             </svg>

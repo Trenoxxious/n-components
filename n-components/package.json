@@ -2,7 +2,7 @@
     "name": "@trenoxxious/n-components",
     "description": "Customizable components for use with vanilla HTML, Javascript and CSS.",
     "private": false,
-    "version": "1.0.12",
+    "version": "1.0.13",
     "repository": "github:Trenoxxious/n-components",
     "keywords": [
         "web-components",
@@ -15,6 +15,7 @@
     "exports": {
         ".": "./dist/n-components.js"
     },
+    "readme": "../README.md",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",

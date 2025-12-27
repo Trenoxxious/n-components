@@ -17,6 +17,7 @@ export class NButton extends LitElement {
         textColor: { type: String },
         borderColor: { type: String },
         dontPunch: { type: Boolean },
+        style: { type: String },
         // Standard HTML button attributes
         type: { type: String },
         id: { type: String },
@@ -207,7 +208,7 @@ export class NButton extends LitElement {
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
             class="${this.variant}${this.background || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleOnHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
-            style="${color ? `color: ${color}; ` : ''}${background && !this.outlineOnly ? `background: ${background}; ` : ``}${background && !borderColor ? `border: 1px solid color-mix(in hsl, ${background} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}${textColor ? `color: ${textColor}; ` : ``}">
+            style="${color ? `color: ${color}; ` : ''}${background && !this.outlineOnly ? `background: ${background}; ` : ``}${background && !borderColor ? `border: 1px solid color-mix(in hsl, ${background} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}${textColor ? `color: ${textColor}; ` : ``}${this.style}">
             <slot></slot>
         </button>`;
     }

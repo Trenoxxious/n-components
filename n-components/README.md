@@ -22,3 +22,20 @@ There are several options for n-button components, including:
 | ***textColor*** | Sets the button's text color. | null | Any CSS-valid color string |
 | ***rounded*** | Rounds the button corners a little more. | false | true, false |
 | ***sharp*** | Sharpens the button corners. | false | true, false |
+
+## Utility
+**An n-component utility is called using the appropriate element in any HTML document/context.**
+
+### n-copy
+An almost drag-n-drop copy button you can throw anywhere.
+
+Called with `<n-copy></n-copy>`
+
+| Variable | Description | Default | Accepts | Note |
+| -------- | -------- | -------- | -------- | -------- |
+| *position* | Sets the position of the n-copy element. | "block" | "top right", "top left", "top", "bottom right", "bottom left", "bottom", "left", "right", "block" | All positions outside of "block" will be assigned absolute positioning and should be placed inside of a relative element. |
+| *copy* | What text will be copied when the button is pressed. | null | Valid strings | You may need to escape strings that should be copied. |
+| *dark* | Sets the button text to white. | false | true, false | |
+| *background* | Sets the button's background. | null | Any CSS-valid background | |
+
+---

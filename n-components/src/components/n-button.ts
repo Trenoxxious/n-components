@@ -13,7 +13,7 @@ export class NButton extends LitElement {
         sharp: { type: Boolean },
         scaleOnHover: { type: Boolean },
         dark: { type: Boolean },
-        bgColor: { type: String },
+        background: { type: String },
         textColor: { type: String },
         borderColor: { type: String },
         dontPunch: { type: Boolean },
@@ -57,7 +57,7 @@ export class NButton extends LitElement {
     ariaLabel = '';
     ariaDescribedby = '';
     ariaPressed = '';
-    bgColor = '';
+    background = '';
     borderColor = '';
     textColor = '';
 
@@ -188,7 +188,7 @@ export class NButton extends LitElement {
 
     render() {
         const color = (this.variant === 'normal' || this.variant === 'success') && this.dark ? this.variant === 'normal' ? 'white' : '#2cff72ff' : '';
-        const bgColor = (this.variant === 'normal' && this.bgColor !== '') ? this.bgColor : null;
+        const background = (this.variant === 'normal' && this.background !== '') ? this.background : null;
         const borderColor = this.borderColor || null;
         const textColor = this.textColor || null;
 
@@ -206,8 +206,8 @@ export class NButton extends LitElement {
             aria-label="${this.ariaLabel || ''}"
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
-            class="${this.variant}${this.bgColor || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleOnHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
-            style="${color ? `color: ${color}; ` : ''}${bgColor && !this.outlineOnly ? `background-color: ${bgColor}; ` : ``}${bgColor && !borderColor ? `border: 1px solid color-mix(in hsl, ${bgColor} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}${textColor ? `color: ${textColor}; ` : ``}">
+            class="${this.variant}${this.background || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleOnHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
+            style="${color ? `color: ${color}; ` : ''}${background && !this.outlineOnly ? `background: ${background}; ` : ``}${background && !borderColor ? `border: 1px solid color-mix(in hsl, ${background} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}${textColor ? `color: ${textColor}; ` : ``}">
             <slot></slot>
         </button>`;
     }

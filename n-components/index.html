@@ -19,7 +19,7 @@
         <h1 style="rotate: -2deg;" class="ready-for-slosh">
             n-components!
         </h1>
-        <h2 style="font-size: 1rem;">Stable Release Version: <span class="html-green">v1.0.8</span></h2>
+        <h2 style="font-size: 1rem;">Stable Release Version: <span class="html-green" id="current-version"></span></h2>
         <script>
             const header = document.querySelector('header h1');
             let sloshed = false;
@@ -82,7 +82,7 @@
                 <n-button variant="alert">Alert</n-button>
                 <n-button variant="success">Success</n-button>
                 <n-button animation="very-slow" variant="alert">Cancel</n-button>
-                <n-button bgColor="rgba(79, 224, 188, 1)" animation="fast">Sign Up</n-button>
+                <n-button background="rgba(79, 224, 188, 1)" animation="fast">Sign Up</n-button>
                 <n-button outlineOnly dark animation="fast" scaleOnHover dontPunch>Dark Mode</n-button>
             </div>
         </div>
@@ -169,12 +169,12 @@
                     </div>
                 </div>
                 <div>
-                    <div class="code html-orange">bgColor<span class="html-gray">=</span><span
+                    <div class="code html-orange">background<span class="html-gray">=</span><span
                             class="html-green">"#cd50ec"</span></div>
                     <div>Colors background and border.</div>
-                    <n-button bgColor="#cd50ec">Custom</n-button>
+                    <n-button background="#cd50ec">Custom</n-button>
                     <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid color string</span>
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid background</span>
                         </p>
                         <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
                     </div>
@@ -224,10 +224,14 @@
     </div>
     <script>
         const copyImportButton = document.getElementById('copy-import');
+        const currentVersionDisplay = document.getElementById('current-version');
+        const currentVersionNum = '1.0.9';
 
         copyImportButton.addEventListener('click', () => {
             navigator.clipboard.writeText(`\<script src=\"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js\">\<\/script\>`);
         });
+
+        currentVersionDisplay.innerText = currentVersionNum;
     </script>
 </body>
 

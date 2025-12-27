@@ -303,7 +303,7 @@ pre {
     }
 
     90% {
-        --degrees: 0deg;
+        --degrees: 1deg;
     }
 
     100% {

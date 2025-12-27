@@ -68,13 +68,8 @@
                 class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span
                 class="html-red">script</span>&gt;
         </div>
-        <div id="copy-import" class="copy-button">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1rem" height="1rem"
-                fill="currentColor">
-                <path
-                    d="M384 336l-192 0c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l133.5 0c4.2 0 8.3 1.7 11.3 4.7l58.5 58.5c3 3 4.7 7.1 4.7 11.3L400 320c0 8.8-7.2 16-16 16zM192 384l192 0c35.3 0 64-28.7 64-64l0-197.5c0-17-6.7-33.3-18.7-45.3L370.7 18.7C358.7 6.7 342.5 0 325.5 0L192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-16-48 0 0 16c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l16 0 0-48-16 0z" />
-            </svg>
-        </div>
+        <n-copy dark background="hsl(220, 13%, 18%)" position="right"
+            copy='<script src="https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"></script>'></n-copy>
     </div>
     <p style="margin-left: 5%; margin-right: 5%; margin-bottom: 50px; margin-top: 10px;">Then, simply call any of
         the below <b class="html-red">n-components</b> to get started.</p>
@@ -89,7 +84,7 @@
                 <h3 class="html-red">n-utility</h3>
                 <p>Various quick utility to make things <strong>easy</strong> and intuitive. Visit the <a class="link"
                         href="https://github.com/Trenoxxious/n-components" target="_blank">n-components Github</a> to
-                    view specifics on using n-utility.</p>
+                    view the specifics of using n-utility.</p>
             </div>
             <div class="button-grid-4">
                 <div class="flex-component">
@@ -97,7 +92,8 @@
                     <div>A simple copy-to-clipboard button.</div>
                     <n-copy dark copy="127.0.0.1"></n-copy>
                     <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">dark, copy</span></p>
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">dark, copy, background,
+                                position</span></p>
                     </div>
                 </div>
             </div>
@@ -112,12 +108,10 @@
         <div class="component-card">
             <div class="component-header">
                 <h3 class="html-red">n-button</h3>
-                <p>Input:</p>
+                <p>Basic usage:</p>
                 <pre><code class="language-html">&lt;n-button&gt;Button&lt;/n-button&gt;</code></pre>
-                <p>Output:</p>
-                <n-button>Button</n-button>
             </div>
-            <p>Examples:</p>
+            <p style="margin-bottom: 12px;">Variants:</p>
             <div class="button-grid">
                 <n-button variant="normal">Normal</n-button>
                 <n-button variant="info">Info</n-button>
@@ -131,138 +125,73 @@
         </div>
         <div class="component-card">
             <div class="component-header">
-                <h3><span class="html-red">n-button</span> Settings</h3>
-                <p>Mix and match any of these component variables.</p>
+                <h3><span class="html-red">n-button</span> Attributes</h3>
+                <p style="margin-bottom: 16px;">Combine any attributes to customize behavior and appearance.</p>
             </div>
             <div class="button-grid-3">
                 <div>
                     <div class="code html-orange">variant<span class="html-gray">=</span><span
                             class="html-green">"info"</span></div>
-                    <div>Button theme type.</div>
-                    <n-button variant="info">Button</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">normal, info, warning, alert,
-                                success</span></p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">normal</span></p>
-                    </div>
-                </div>
-                <div>
-                    <div class="code html-orange">dontPunch</div>
-                    <div>Won't react to clicks.</div>
-                    <n-button dontPunch>Button</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
-                </div>
-                <div>
-                    <div class="code html-orange">scaleOnHover</div>
-                    <div>Scales when hovered.</div>
-                    <n-button scaleOnHover>Scales!</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
+                    <p style="font-size: 13px; margin: 4px 0;">Theme type.</p>
+                    <n-button variant="info" style="margin: 8px 0;">Button</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Options:</span> <span
+                            class="sub-text">normal, info, warning, alert, success</span></p>
                 </div>
                 <div>
                     <div class="code html-orange">animation<span class="html-gray">=</span><span
                             class="html-green">"fast"</span></div>
-                    <div>Control most animation speeds.</div>
-                    <n-button animation="fast">Fast Button</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">fast, normal, slow or
-                                very-slow</span></p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">normal</span></p>
-                    </div>
-                </div>
-                <div>
-                    <div class="code html-orange">thick</div>
-                    <div>The largest button variant.</div>
-                    <n-button thick>Thick Button</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Overrides: <span class="html-orange">thin</span>
-                        </p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
-                </div>
-                <div>
-                    <div class="code html-orange">thin</div>
-                    <div>The smallest button variant.</div>
-                    <n-button thin>Thin Button</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
-                </div>
-                <div>
-                    <div class="code html-orange">dark</div>
-                    <div>Colors button text lighter.</div>
-                    <n-button dark>Dark Mode</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Typically combined with <span class="html-orange">outlineOnly</span>
-                            or
-                            <span class="html-orange">dark</span>.
-                        </p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
-                </div>
-                <div>
-                    <div class="code html-orange">outlineOnly</div>
-                    <div>Colors button text lighter.</div>
-                    <n-button outlineOnly dark>Outline</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
+                    <p style="font-size: 13px; margin: 4px 0;">Animation speed.</p>
+                    <n-button animation="fast" style="margin: 8px 0;">Fast</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Options:</span> <span
+                            class="sub-text">fast, normal, slow, very-slow</span></p>
                 </div>
                 <div>
                     <div class="code html-orange">background<span class="html-gray">=</span><span
                             class="html-green">"#cd50ec"</span></div>
-                    <div>Colors background and border.</div>
-                    <n-button background="#cd50ec">Custom</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid background</span>
-                        </p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
-                    </div>
+                    <p style="font-size: 13px; margin: 4px 0;">Background color.</p>
+                    <n-button background="#cd50ec" style="margin: 8px 0;">Custom</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Accepts:</span> <span
+                            class="sub-text">CSS color values</span></p>
                 </div>
                 <div>
-                    <div class="code html-orange">borderColor<span class="html-gray">=</span><span
-                            class="html-green">"#6518e0ff"</span></div>
-                    <div>Colors the button border.</div>
-                    <n-button borderColor="#6518e0ff">Border Color</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid color
-                                string</span>
-                        </p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
-                    </div>
+                    <div class="code html-orange">scaleOnHover</div>
+                    <p style="font-size: 13px; margin: 4px 0;">Scales on hover.</p>
+                    <n-button scaleOnHover style="margin: 8px 0;">Scales!</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
                 </div>
                 <div>
-                    <div class="code html-orange">textColor<span class="html-gray">=</span><span
-                            class="html-green">"#e04018ff"</span></div>
-                    <div>Colors the button's text.</div>
-                    <n-button textColor="#e04018" variant="info">Text Color</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">any CSS-valid color
-                                string</span>
-                        </p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">null</span></p>
-                    </div>
+                    <div class="code html-orange">thick</div>
+                    <p style="font-size: 13px; margin: 4px 0;">Largest variant.</p>
+                    <n-button thick style="margin: 8px 0;">Thick</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span> · Overrides
+                        <span class="html-orange">thin</span>
+                    </p>
+                </div>
+                <div>
+                    <div class="code html-orange">thin</div>
+                    <p style="font-size: 13px; margin: 4px 0;">Smallest variant.</p>
+                    <n-button thin style="margin: 8px 0;">Thin</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
                 </div>
                 <div>
                     <div class="code html-orange">rounded</div>
-                    <div>Rounds the corners.</div>
-                    <n-button rounded>Rounded</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
+                    <p style="font-size: 13px; margin: 4px 0;">Rounded corners.</p>
+                    <n-button rounded style="margin: 8px 0;">Rounded</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span> · Overridden by
+                        <span class="html-orange">sharp</span>
+                    </p>
                 </div>
                 <div>
-                    <div class="code html-orange">sharp</div>
-                    <div>Sharpens the corners.</div>
-                    <n-button sharp>Sharp</n-button>
-                    <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Overrides: <span class="html-orange">rounded</span>
-                        </p>
-                        <p style="font-size: 12px;">Default: <span class="sub-text">false</span></p>
-                    </div>
+                    <div class="code html-orange">outlineOnly</div>
+                    <p style="font-size: 13px; margin: 4px 0;">Outline style.</p>
+                    <n-button outlineOnly dark style="margin: 8px 0;">Outline</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
+                </div>
+                <div>
+                    <div class="code html-orange">dontPunch</div>
+                    <p style="font-size: 13px; margin: 4px 0;">Disable click reaction.</p>
+                    <n-button dontPunch style="margin: 8px 0;">Static</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
                 </div>
             </div>
         </div>
@@ -270,7 +199,7 @@
     <script>
         const copyImportButton = document.getElementById('copy-import');
         const currentVersionDisplay = document.getElementById('current-version');
-        const currentVersionNum = '1.0.11';
+        const currentVersionNum = '1.0.0';
 
         copyImportButton.addEventListener('click', () => {
             navigator.clipboard.writeText(`\<script src=\"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js\">\<\/script\>`);

@@ -6,6 +6,8 @@ export class NCopy extends LitElement {
     static properties = {
         dark: { type: Boolean },
         copy: { type: String },
+        position: { type: String },
+        background: { type: String },
         // Standard HTML button attributes
         id: { type: String },
         style: { type: String },
@@ -16,8 +18,10 @@ export class NCopy extends LitElement {
         ariaPressed: { type: String, attribute: 'aria-pressed' },
     };
 
+    position: "block" | "top right" | "top left" | "bottom right" | "bottom left" | "left" | "right" | "top" | "bottom" = "block";
     dark = false;
     copy = '';
+    background = '';
     // Standard HTML button attributes
     id = '';
     name = '';
@@ -33,7 +37,8 @@ export class NCopy extends LitElement {
             height: 18px;
             cursor: pointer;
             user-select: none;
-            padding: 2px;
+            padding: 4px;
+            border-radius: 4px;
         }
 
         .copy-button:active {
@@ -42,6 +47,39 @@ export class NCopy extends LitElement {
     `;
 
     render() {
+        let positionAttr = '';
+
+        switch (this.position) {
+            case "top right":
+                positionAttr = `position: absolute; top: 0; right: 0;`;
+                break;
+            case "bottom right":
+                positionAttr = `position: absolute; bottom: 0; right: 0;`;
+                break;
+            case "top left":
+                positionAttr = `position: absolute; top: 0; left: 0;`;
+                break;
+            case "bottom left":
+                positionAttr = `position: absolute; bottom: 0; left: 0;`;
+                break;
+            case "top":
+                positionAttr = `position: absolute; top: 0; right: 50%; transform: translateX(-50%);`;
+                break;
+            case "bottom":
+                positionAttr = `position: absolute; bottom: 0; right: 50%; transform: translateX(-50%);`;
+                break;
+            case "left":
+                positionAttr = `position: absolute; left: 0; top: 50%; transform: translateY(-50%);`;
+                break;
+            case "right":
+                positionAttr = `position: absolute; right: 0; top: 50%; transform: translateY(-50%);`;
+                break;
+            case "block":
+            default:
+                positionAttr = `position: unset;`;
+                break;
+        }
+
         return html`<div 
             ?disabled="${this.disabled}"
             id="${this.id || ''}"
@@ -52,7 +90,7 @@ export class NCopy extends LitElement {
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
             class="copy-button"
-            style="${this.style}">
+            style="${positionAttr}${this.background !== '' ? ` background: ${this.background};` : ``}${this.style ? ` ${this.style}` : ``}">
             <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="${this.dark ? 'white' : 'black'}">
                 <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
             </svg>

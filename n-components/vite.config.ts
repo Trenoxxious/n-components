@@ -4,6 +4,9 @@ import { dirname } from 'path';
 import * as fs from 'fs';
 import * as path from 'path';
 
+const packageJson = JSON.parse(fs.readFileSync(path.resolve(dirname(fileURLToPath(import.meta.url)), 'package.json'), 'utf-8'));
+const version = packageJson.version;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -60,6 +63,7 @@ export default defineConfig({
                 );
                 html = html.replace(/href="\.\/src\/index\.css"/g, 'href="index.css"');
                 html = html.replace(/href="\.\/src\/one-dark\.css"/g, 'href="one-dark.css"');
+                html = html.replace(/const currentVersionNum = '[^']*'/, `const currentVersionNum = '${version}'`);
                 fs.writeFileSync(indexPath, html);
             }
         }

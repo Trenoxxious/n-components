@@ -47,6 +47,8 @@ export class NButton extends LitElement {
             border-radius: 2px;
             transition: all 0.25s;
             min-width: 100px;
+            max-width: 200px;
+            text-wrap: pretty;
             user-select: none;
         }
 
@@ -112,6 +114,15 @@ export class NButton extends LitElement {
             border: 1px solid rgba(255, 76, 76, 1);
         }
 
+        .nb-dynamic {
+            min-width: unset !important;
+            max-width: unset !important;
+        }
+
+        .nb-nowrap {
+            text-wrap: nowrap !important;
+        }
+
         .nb-thin {
             padding: 4px 8px;
         }
@@ -130,10 +141,6 @@ export class NButton extends LitElement {
 
         .nb-fast {
             transition: all 0.10s !important;
-        }
-
-        .nb-normal {
-            transition: all 0.25s !important;
         }
 
         .nb-slow {

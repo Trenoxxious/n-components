@@ -2,7 +2,7 @@
     "name": "@trenoxxious/n-components",
     "description": "Customizable components for use with vanilla HTML, Javascript and CSS.",
     "private": false,
-    "version": "1.0.14",
+    "version": "1.0.16",
     "repository": "github:Trenoxxious/n-components",
     "keywords": [
         "web-components",
@@ -10,7 +10,8 @@
     ],
     "type": "module",
     "files": [
-        "dist"
+        "dist",
+        "README.md"
     ],
     "exports": {
         ".": "./dist/n-components.js"

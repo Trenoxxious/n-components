@@ -4,21 +4,7 @@ import { customElement } from 'lit/decorators.js';
 @customElement('n-button')
 export class NButton extends LitElement {
     static properties = {
-        variant: { type: String },
-        animation: { type: String },
-        thin: { type: Boolean },
-        thick: { type: Boolean },
-        outlineOnly: { type: Boolean },
-        rounded: { type: Boolean },
-        sharp: { type: Boolean },
-        scaleOnHover: { type: Boolean },
-        dark: { type: Boolean },
-        background: { type: String },
-        textColor: { type: String },
-        borderColor: { type: String },
-        dontPunch: { type: Boolean },
         style: { type: String },
-        // Standard HTML button attributes
         type: { type: String },
         id: { type: String },
         name: { type: String },
@@ -34,17 +20,6 @@ export class NButton extends LitElement {
         ariaPressed: { type: String, attribute: 'aria-pressed' },
     };
 
-    variant: 'normal' | 'info' | 'warning' | 'alert' | 'success' = 'normal';
-    thin = false;
-    thick = false;
-    outlineOnly = false;
-    scaleOnHover = false;
-    rounded = false;
-    sharp = false;
-    dark = false;
-    dontPunch = false;
-    animation: 'fast' | 'normal' | 'slow' | 'very-slow' = 'normal';
-    // Standard HTML button attributes
     type = 'button';
     id = '';
     name = '';
@@ -70,114 +45,115 @@ export class NButton extends LitElement {
             font-size: 14px;
             font-weight: 400;
             border-radius: 2px;
-            transition: all;
-            animation-duration: 0.3s;
+            transition: all 0.25s;
             min-width: 100px;
             user-select: none;
         }
 
-        button:not(.dont-punch):active {
+        button:not(.nb-dp):not(.nb-dont-punch):active {
             transition: transform 0.15s linear;
             scale: 0.97;
         }
 
-        button.info {
+        button.nb-info {
             background-color: #007bff;
             color: white;
             border: 1px solid #2c92ffff;
         }
 
-        button.info:hover {
+        button.nb-info:hover {
             background-color: #268fffff;
             border: 1px solid #4da3ffff;
         }
 
-        button.success {
+        button.nb-success {
             background-color: #00ff55ff;
             color: #242424ff;
             border: 1px solid #2cff72ff;
         }
 
-        button.success:hover {
+        button.nb-success:hover {
             background-color: #26ff67ff;
             border: 1px solid #93ffb7ff;
         }
 
-        button.normal {
+        button,
+        button.nb-normal {
             background-color: #e0e0e0;
             color: #242424ff;
             border: 1px solid #ddd;
         }
 
-        button.normal:hover {
+        button:hover,
+        button.nb-normal:hover {
             background-color: #f5f5f5ff;
             border: 1px solid #ffffffff;
         }
 
-        button.warning {
+        button.nb-warning {
             background-color: rgba(241, 132, 7, 1);
             color: white;
             border: 1px solid rgba(248, 142, 42, 1);
         }
 
-        button.warning:hover {
+        button.nb-warning:hover {
             background-color: rgba(240, 162, 16, 1);
             border: 1px solid rgba(255, 184, 53, 1);
         }
 
-        button.alert {
+        button.nb-alert {
             background-color: rgba(233, 30, 23, 1);
             color: white;
             border: 1px solid rgba(248, 49, 42, 1);
         }
 
-        button.alert:hover {
+        button.nb-alert:hover {
             background-color: rgba(248, 44, 44, 1);
             border: 1px solid rgba(255, 76, 76, 1);
         }
 
-        button.thin {
+        .nb-thin {
             padding: 4px 8px;
         }
 
-        button.thick {
-            padding: 12px 24px;
+        .nb-thick {
+            padding: 12px 24px !important;
         }
 
-        button.outline-only {
+        .nb-outline {
             background-color: transparent !important;
         }
 
-        button.scale-hover:hover {
+        .nb-scale:hover {
             transform: scale(1.05);
         }
 
-        button.custom-color:hover {
-            filter: brightness(1.1);
+        .nb-fast {
+            transition: all 0.10s !important;
         }
 
-        .animation-fast {
-            transition: all 0.10s;
+        .nb-normal {
+            transition: all 0.25s !important;
         }
 
-        .animation-normal {
-            transition: all 0.25s;
+        .nb-slow {
+            transition: all 0.45s !important;
         }
 
-        .animation-slow {
-            transition: all 0.45s;
+        .nb-very-slow {
+            transition: all 1s !important;
         }
 
-        .animation-very-slow {
-            transition: all 1s;
+        .nb-dark {
+            color: white !important;
         }
 
-        .rounded {
+        .nb-rounded {
             border-radius: 4px;
         }
 
-        .sharp {
-            border-radius: 0;
+        .nb-sharp {
+            border-radius: 0 !important;
         }
 
         @media screen and (width <= 1024px) {
@@ -187,12 +163,21 @@ export class NButton extends LitElement {
         }
     `;
 
-    render() {
-        const color = (this.variant === 'normal' || this.variant === 'success') && this.dark ? this.variant === 'normal' ? 'white' : '#2cff72ff' : '';
-        const background = (this.variant === 'normal' && this.background !== '') ? this.background : null;
-        const borderColor = this.borderColor || null;
-        const textColor = this.textColor || null;
+    private getButtonClasses() {
+        const classes: string[] = [];
 
+        // Add nb- prefixed classes from the element
+        const elementClasses = this.getAttribute('class')?.split(' ') || [];
+        elementClasses.forEach(cl => {
+            if (cl.startsWith('nb-')) {
+                classes.push(cl);
+            }
+        });
+
+        return classes.join(' ');
+    }
+
+    render() {
         return html`<button 
             type="${this.type}"
             ?disabled="${this.disabled}"
@@ -207,8 +192,8 @@ export class NButton extends LitElement {
             aria-label="${this.ariaLabel || ''}"
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
-            class="${this.variant}${this.background || this.borderColor ? ' custom-color' : ''}${this.dontPunch ? ' dont-punch' : ''}${this.thin && !this.thick ? ' thin' : this.thick ? ' thick' : ''}${this.outlineOnly ? ' outline-only' : ''}${this.scaleOnHover ? ' scale-hover' : ''}${this.rounded && !this.sharp ? ' rounded' : this.sharp ? ' sharp' : ''} animation-${this.animation}"
-            style="${color ? `color: ${color}; ` : ''}${background && !this.outlineOnly ? `background: ${background}; ` : ``}${background && !borderColor ? `border: 1px solid color-mix(in hsl, ${background} 100%, white 10%); ` : borderColor ? `border: 1px solid ${borderColor}; ` : ``}${textColor ? `color: ${textColor}; ` : ``}${this.style}">
+            class="${this.getButtonClasses()}"
+            style="${this.style}">
             <slot></slot>
         </button>`;
     }

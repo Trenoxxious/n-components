@@ -172,6 +172,7 @@ b {
     font-weight: 500;
     color: rgba(255, 255, 255, 0.95);
     font-family: "Manjari", sans-serif, system-ui;
+    text-align: left;
 }
 
 .button-grid {

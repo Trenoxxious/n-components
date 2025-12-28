@@ -55,11 +55,9 @@
         </script>
         <p>Simple, lightweight web components for use with vanilla HTML, JS and CSS.</p>
     </header>
-    <p style="margin-left: 5%; margin-right: 5%;">Import the latest version of <b class="html-red">n-components</b>
-        into
-        your static
-        vanilla
-        HTML file using:</p>
+    <p style="margin-left: 5%; margin-right: 5%; margin-bottom: 10px;">Import the latest version of <b
+            class="html-red">n-components</b>
+        into your static vanilla HTML file using:</p>
     <div class="code"
         style="padding-bottom: 5px; margin-left: 5%; margin-right: 5%; margin-bottom: 0; position: relative;">
         <div class="code-content w-full">
@@ -68,15 +66,16 @@
                 class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span
                 class="html-red">script</span>&gt;
         </div>
-        <n-copy dark background="hsl(220, 13%, 18%)" position="right"
+        <n-copy dark successColor="rgba(0, 255, 106, 1)" background="hsl(220, 13%, 18%)" size="medium"
+            position="top right"
             copy='<script src="https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"></script>'></n-copy>
     </div>
     <p style="margin-left: 5%; margin-right: 5%; margin-bottom: 50px; margin-top: 10px;">Then, simply call any of
         the below <b class="html-red">n-components</b> to get started.</p>
 
     <!-- Utility -->
-    <p class="sec" style="margin-left: 5%; margin-right: 5%;">We have useful out-of-the-box utility. Take a peek at
-        things like <span class="html-red"><b>n-</b>copy</span>!
+    <p class="sec" style="margin-left: 5%; margin-right: 5%;">We have some useful drop-in utilities. Take a peek at
+        things like <span class="html-red"><b>n-</b>copy</span> and <span class="html-red"><b>n-</b>tooltip</span>!
     </p>
     <div class="components-grid-full" style="margin-bottom: 50px;">
         <div class="component-card">
@@ -88,12 +87,20 @@
             </div>
             <div class="button-grid-4">
                 <div class="flex-component">
-                    <pre><code class="language-html">&lt;n-copy dark copy="127.0.0.1"&gt;&lt;/n-copy&gt;</code></pre>
+                    <pre><code class="language-html">&lt;n-copy dark size="large" copy="127.0.0.1"&gt;&lt;/n-copy&gt;</code></pre>
                     <div>A simple copy-to-clipboard button.</div>
-                    <n-copy dark copy="127.0.0.1"></n-copy>
+                    <n-copy dark size="large" copy="127.0.0.1"></n-copy>
                     <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">dark, copy, background,
-                                position</span></p>
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">dark, copy, size, successColor,
+                                background, position</span></p>
+                    </div>
+                </div>
+                <div class="flex-component">
+                    <pre><code class="language-html">&lt;n-button n-tooltip="Hover me!" class="nb-info nt-dark"&gt;Hello!&lt;/n-button&gt;</code></pre>
+                    <div>A tooltip that attaches to the mouse on element hover.</div>
+                    <n-button n-tooltip="Hover me!" class="nb-info nt-dark">Hello!</n-button>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">string, nt-class</span></p>
                     </div>
                 </div>
             </div>
@@ -113,14 +120,14 @@
             </div>
             <p style="margin-bottom: 12px;">Variants:</p>
             <div class="button-grid">
-                <n-button variant="normal">Normal</n-button>
-                <n-button variant="info">Info</n-button>
-                <n-button variant="warning">Warning</n-button>
-                <n-button variant="alert">Alert</n-button>
-                <n-button variant="success">Success</n-button>
-                <n-button animation="very-slow" variant="alert">Cancel</n-button>
-                <n-button background="rgba(79, 224, 188, 1)" animation="fast">Sign Up</n-button>
-                <n-button outlineOnly dark animation="fast" scaleOnHover dontPunch>Dark Mode</n-button>
+                <n-button>Normal</n-button>
+                <n-button class="nb-info">Info</n-button>
+                <n-button class="nb-warning">Warning</n-button>
+                <n-button class="nb-alert">Alert</n-button>
+                <n-button class="nb-success">Success</n-button>
+                <n-button class="nb-alert nb-slow">Cancel</n-button>
+                <n-button class="nb-fast">Sign Up</n-button>
+                <n-button class="nb-dp nb-dark nb-fast nb-scale nb-outline">Dark Mode</n-button>
             </div>
         </div>
         <div class="component-card">
@@ -130,67 +137,73 @@
             </div>
             <div class="button-grid-3">
                 <div>
-                    <div class="code html-orange">variant<span class="html-gray">=</span><span
-                            class="html-green">"info"</span></div>
-                    <p style="font-size: 13px; margin: 4px 0;">Theme type.</p>
-                    <n-button variant="info" style="margin: 8px 0;">Button</n-button>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-info"</span></div>
+                    <p style="font-size: 13px; margin: 4px 0;">Controls theme type.</p>
+                    <n-button class="nb-info">Button</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Options:</span> <span
                             class="sub-text">normal, info, warning, alert, success</span></p>
                 </div>
                 <div>
-                    <div class="code html-orange">animation<span class="html-gray">=</span><span
-                            class="html-green">"fast"</span></div>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-fast"</span></div>
                     <p style="font-size: 13px; margin: 4px 0;">Animation speed.</p>
-                    <n-button animation="fast" style="margin: 8px 0;">Fast</n-button>
+                    <n-button class="nb-fast">Fast</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Options:</span> <span
                             class="sub-text">fast, normal, slow, very-slow</span></p>
                 </div>
                 <div>
-                    <div class="code html-orange">background<span class="html-gray">=</span><span
-                            class="html-green">"#cd50ec"</span></div>
-                    <p style="font-size: 13px; margin: 4px 0;">Background color.</p>
-                    <n-button background="#cd50ec" style="margin: 8px 0;">Custom</n-button>
-                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Accepts:</span> <span
-                            class="sub-text">CSS color values</span></p>
-                </div>
-                <div>
-                    <div class="code html-orange">scaleOnHover</div>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-scale"</span></div>
                     <p style="font-size: 13px; margin: 4px 0;">Scales on hover.</p>
-                    <n-button scaleOnHover style="margin: 8px 0;">Scales!</n-button>
+                    <n-button class="nb-scale">Scales!</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
                 </div>
                 <div>
-                    <div class="code html-orange">thick</div>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-thick"</span></div>
                     <p style="font-size: 13px; margin: 4px 0;">Largest variant.</p>
-                    <n-button thick style="margin: 8px 0;">Thick</n-button>
+                    <n-button class="nb-thick">Thick</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span> · Overrides
                         <span class="html-orange">thin</span>
                     </p>
                 </div>
                 <div>
-                    <div class="code html-orange">thin</div>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-thin"</span></div>
                     <p style="font-size: 13px; margin: 4px 0;">Smallest variant.</p>
-                    <n-button thin style="margin: 8px 0;">Thin</n-button>
+                    <n-button class="nb-thin">Thin</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
                 </div>
                 <div>
-                    <div class="code html-orange">rounded</div>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-rounded"</span></div>
                     <p style="font-size: 13px; margin: 4px 0;">Rounded corners.</p>
-                    <n-button rounded style="margin: 8px 0;">Rounded</n-button>
+                    <n-button class="nb-rounded">Rounded</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span> · Overridden by
                         <span class="html-orange">sharp</span>
                     </p>
                 </div>
                 <div>
-                    <div class="code html-orange">outlineOnly</div>
-                    <p style="font-size: 13px; margin: 4px 0;">Outline style.</p>
-                    <n-button outlineOnly dark style="margin: 8px 0;">Outline</n-button>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-sharp"</span></div>
+                    <p style="font-size: 13px; margin: 4px 0;">Rounded corners.</p>
+                    <n-button class="nb-sharp">Sharp</n-button>
+                    <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span>
+                    </p>
+                </div>
+                <div>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-outline"</span></div>
+                    <p style="font-size: 13px; margin: 4px 0;">Outlined only style.</p>
+                    <n-button class="nb-outline nb-dark">Outline</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
                 </div>
                 <div>
-                    <div class="code html-orange">dontPunch</div>
+                    <div class="code html-orange">class<span class="html-gray">=</span><span
+                            class="html-green">"nb-dp"</span></div>
                     <p style="font-size: 13px; margin: 4px 0;">Disable click reaction.</p>
-                    <n-button dontPunch style="margin: 8px 0;">Static</n-button>
+                    <n-button class="nb-dp">Static</n-button>
                     <p style="font-size: 11px; margin-top: 8px;"><span class="html-gray">Boolean</span></p>
                 </div>
             </div>

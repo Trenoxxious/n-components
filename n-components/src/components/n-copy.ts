@@ -9,6 +9,7 @@ export class NCopy extends LitElement {
         position: { type: String },
         background: { type: String },
         size: { type: String },
+        successColor: { type: String },
         // Standard HTML button attributes
         id: { type: String },
         style: { type: String },
@@ -19,11 +20,12 @@ export class NCopy extends LitElement {
         ariaPressed: { type: String, attribute: 'aria-pressed' },
     };
 
-    position: "block" | "top right" | "top left" | "bottom right" | "bottom left" | "left" | "right" | "top" | "bottom" = "block";
+    position: "unset" | "top right" | "top left" | "bottom right" | "bottom left" | "left" | "right" | "top" | "bottom" = "unset";
     dark = false;
     copy = '';
     background = '';
     size: "small" | "medium" | "large" = "small";
+    successColor = '';
     // Standard HTML button attributes
     id = '';
     name = '';
@@ -32,6 +34,8 @@ export class NCopy extends LitElement {
     ariaDescribedby = '';
     ariaPressed = '';
 
+    colorChanging = false;
+
     static styles = css`
         .copy-button {
             display: block;
@@ -39,6 +43,11 @@ export class NCopy extends LitElement {
             user-select: none;
             padding: 4px;
             border-radius: 4px;
+            color: black;
+        }
+
+        .copy-button.dark {
+            color: white;
         }
 
         .copy-button:active {
@@ -81,7 +90,7 @@ export class NCopy extends LitElement {
             case "right":
                 positionAttr = `position: absolute; right: 0; top: 50%; transform: translateY(-50%);`;
                 break;
-            case "block":
+            case "unset":
             default:
                 positionAttr = `position: unset;`;
                 break;
@@ -96,15 +105,29 @@ export class NCopy extends LitElement {
             aria-label="${this.ariaLabel || ''}"
             aria-describedby="${this.ariaDescribedby || ''}"
             aria-pressed="${this.ariaPressed || ''}"
-            class="copy-button"
+            class="copy-button${this.dark ? ' dark' : ''}"
             style="${positionAttr}${` width: ${sizePx}; height: ${sizePx};`}${this.background !== '' ? ` background: ${this.background};` : ``}${this.style ? ` ${this.style}` : ``}">
-            <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="${this.dark ? 'white' : 'black'}">
+            <svg xmlns="http://www.w3.org/2000/svg" height="${sizePx}" viewBox="0 -960 960 960" width="${sizePx}" fill="currentColor">
                 <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
             </svg>
         </div>`;
     }
 
     private handleCopy() {
-        navigator.clipboard.writeText(this.copy);
+        const button = this.shadowRoot?.querySelector('.copy-button') as HTMLElement;
+
+        if (!this.colorChanging) {
+            this.colorChanging = true;
+            if (this.successColor !== '' && button) {
+                button.style.color = this.successColor;
+            }
+            navigator.clipboard.writeText(this.copy);
+            setTimeout(() => {
+                if (button) {
+                    button.style.color = '';
+                }
+                this.colorChanging = false;
+            }, 2000);
+        }
     }
 }

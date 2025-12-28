@@ -66,8 +66,7 @@
                 class="html-green">"https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"</span>&gt;&lt;/<span
                 class="html-red">script</span>&gt;
         </div>
-        <n-copy dark successColor="rgba(0, 255, 106, 1)" background="hsl(220, 13%, 18%)" size="medium"
-            position="top right"
+        <n-copy class="nc-tr nc-dark nc-medium nc-success-[#00ff6aff]"
             copy='<script src="https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"></script>'></n-copy>
     </div>
     <p style="margin-left: 5%; margin-right: 5%; margin-bottom: 50px; margin-top: 10px;">Then, simply call any of
@@ -87,12 +86,11 @@
             </div>
             <div class="button-grid-4">
                 <div class="flex-component">
-                    <pre><code class="language-html">&lt;n-copy dark size="large" copy="127.0.0.1"&gt;&lt;/n-copy&gt;</code></pre>
+                    <pre><code class="language-html">&lt;n-copy class="nc-large nc-dark" copy="127.0.0.1"&gt;&lt;/n-copy&gt;</code></pre>
                     <div>A simple copy-to-clipboard button.</div>
-                    <n-copy dark size="large" copy="127.0.0.1"></n-copy>
+                    <n-copy class="nc-dark nc-medium" copy="127.0.0.1"></n-copy>
                     <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">dark, copy, size, successColor,
-                                background, position</span></p>
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">string, nc-classes</span></p>
                     </div>
                 </div>
                 <div class="flex-component">
@@ -100,7 +98,7 @@
                     <div>A tooltip that attaches to the mouse on element hover.</div>
                     <n-button n-tooltip="Hover me!" class="nb-info nt-dark">Hello!</n-button>
                     <div style="margin-top: 10px;">
-                        <p style="font-size: 12px;">Accepts: <span class="sub-text">string, nt-class</span></p>
+                        <p style="font-size: 12px;">Accepts: <span class="sub-text">string, nt-classes</span></p>
                     </div>
                 </div>
             </div>

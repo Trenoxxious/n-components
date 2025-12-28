@@ -6,7 +6,10 @@ To use, import with `<script src="https://unpkg.com/@trenoxxious/n-components@la
 ## n-buttons
 **An n-component button element is called using `<n-button></n-button>` in any HTML document/context.**
 
-There are several class options for n-button components, including:
+A button element you can use to replace the default button element.
+
+Called with `<n-button></n-button>` and additional options listed below, starting with **nb-** for **n-button**.
+
 | Class | Description | Default | Accepts |
 | -------- | -------- | -------- | -------- |
 | ***nb-normal*** | Changes the main color theme of the button. | "nb-normal" | "nb-normal", "nb-info", "nb-success", "nb-warning", "nb-alert" |
@@ -28,13 +31,37 @@ There are several class options for n-button components, including:
 ### n-copy
 A drop-in **copy** button you can throw pretty much anywhere.
 
-Called with `<n-copy></n-copy>` and additional options listed below.
+Called with `<n-copy></n-copy>` and additional options listed below, staring with **nc-** for **n-copy**.
 
 | Class | Description | Default | Accepts | Note |
 | -------- | -------- | -------- | -------- | -------- |
 | *nc-unset* | Sets the position of the n-copy element. | "nc-unset" | "nc-tr", "nc-tl", "nc-t", "nc-br", "nc-bl", "nc-b", "nc-l", "nc-r", "nc-unset" | All positions outside of "nc-unset" will also be assigned **absolute positioning** and *should be placed inside of a relative element*. |
-| *nc-small* | Sets the size of the copy button | "nc-small" | "nc-small" (16x16px), "nc-medium" (24x24px), "nc-large" (32x32px)| The button has a default padding of 4px. You can use `style="padding: 0;"` to eliminate this. |
-| *nc-success-[green]* | When copied, sets the color of the copy button to the specified value for 2s | null | Any CSS-valid color string | |
-| *nc-dark* | Sets the button text to white. | Black in color. | "nc-dark" | |
+| *nc-small* | Sets the size of the copy button/SVG element. | "nc-small" | "nc-small" (16x16px), "nc-medium" (24x24px), "nc-large" (32x32px)| The button has a default padding of 4px. You can use `style="padding: 0;"` to eliminate this. |
+| *nc-success-[#00FF00]* | When copied, sets the color of the copy button to the specified value for 2s | null | Any valid **HEX** or **name** color string | |
+| *nc-dark* | Sets the button text to white. | The copy SVG is black in color. | "nc-dark" | |
+
+Then, the `<n-copy></n-copy>` element also takes a `copy` attribute:
+
+| Attribute | Description | Default | Accepts | Note |
+| -------- | -------- | -------- | -------- | -------- |
+| *copy* | Sets the string to be copied when clicked. | null | A valid string. | You may have to escape the string you intend the user to copy using backslashes (\\). |
+
+---
+
+### n-tooltip
+An attribute you can assign to almost anything to display a tooltip at the user's cursor.
+
+Called with the `n-tooltip=` dataset and additional options listed below, starting with **nt-** for **n-tooltip**.
+
+| Class | Description | Default | Accepts |
+| -------- | -------- | -------- | -------- |
+| *nt-dark* | Sets the tooltip to dark mode with a dark background and white text. | White background and black text. | "nc-dark" |
+| *nt-fast* | Sets the opacity animation speed. | Has 0.25s opacity animation speed. | "nt-fast", "nt-slow", "nt-very-slow" |
+
+Then, the `n-tooltip` attribute also requires a string to display:
+
+| Attribute | Description | Default | Accepts | Note |
+| -------- | -------- | -------- | -------- | -------- |
+| *n-tooltip="This is a tooltip."* | Sets the string that is displayed on element hover. | null | A valid string. | You may have to escape the string you intend to display to the user using backslashes (\\). |
 
 ---

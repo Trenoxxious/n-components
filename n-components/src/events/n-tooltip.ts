@@ -34,10 +34,6 @@ if (!document.querySelector('style[data-tooltip]')) {
             transition: opacity 0.15s ease-in-out;
         }
 
-        .tooltip.nt-normal {
-            transition: opacity 0.25s ease-in-out;
-        }
-
         .tooltip.nt-slow {
             transition: opacity 0.5s ease-in-out;
         }

@@ -1,4 +1,3 @@
-const padding = 10;
 const maxTooltipLength = 30;
 
 if (!document.querySelector('style[data-tooltip]')) {
@@ -59,6 +58,37 @@ function findAllNClasses(classlist: string) {
     return classesToAdd;
 }
 
+function calculateTooltipPosition(mouseX: number, mouseY: number, tooltipWidth: number, tooltipHeight: number) {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const margin = 10;
+    const cursorOffset = 15;
+
+    let top = mouseY - tooltipHeight - cursorOffset;
+    let left = mouseX - (tooltipWidth / 2);
+
+    if (top < margin) {
+        top = mouseY + cursorOffset;
+    }
+
+    if (top + tooltipHeight > viewportHeight - margin) {
+        top = mouseY - tooltipHeight - cursorOffset;
+        if (top < margin) {
+            top = margin;
+        }
+    }
+
+    if (left < margin) {
+        left = margin;
+    }
+
+    if (left + tooltipWidth > viewportWidth - margin) {
+        left = viewportWidth - tooltipWidth - margin;
+    }
+
+    return { top, left };
+}
+
 function showTooltip(target: HTMLElement, textToShow: string | null, mouseX: number, mouseY: number) {
     if (textToShow) {
         const targetElement = target;
@@ -78,13 +108,28 @@ function showTooltip(target: HTMLElement, textToShow: string | null, mouseX: num
             toolTip.style.textWrap = 'pretty';
         }
 
-        toolTip.style.top = `${mouseY - 35 - padding}px`;
-        toolTip.style.left = `${mouseX - 35}px`;
+        toolTip.style.visibility = 'hidden';
+        toolTip.style.opacity = '0';
         document.body.appendChild(toolTip);
 
+        const tooltipRect = toolTip.getBoundingClientRect();
+        const tooltipWidth = tooltipRect.width;
+        const tooltipHeight = tooltipRect.height;
+        const position = calculateTooltipPosition(mouseX, mouseY, tooltipWidth, tooltipHeight);
+
+        toolTip.style.top = `${position.top}px`;
+        toolTip.style.left = `${position.left}px`;
+        toolTip.style.visibility = 'visible';
+
         const handleMouseMove = (moveEvent: MouseEvent) => {
-            toolTip.style.top = `${moveEvent.clientY - 35 - padding}px`;
-            toolTip.style.left = `${moveEvent.clientX - 35}px`;
+            const newPosition = calculateTooltipPosition(
+                moveEvent.clientX,
+                moveEvent.clientY,
+                tooltipWidth,
+                tooltipHeight
+            );
+            toolTip.style.top = `${newPosition.top}px`;
+            toolTip.style.left = `${newPosition.left}px`;
         };
 
         targetElement.addEventListener('mousemove', handleMouseMove);

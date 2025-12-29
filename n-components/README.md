@@ -1,9 +1,17 @@
-# n-components
+<div align="center">
+  <img src="n-components/public/n-components-logo.webp" alt="n-components logo" height="120">
 
-Simple web components for use with *static* vanilla HTML, JS and CSS websites.
+  <h1>n-components</h1>
 
-Visit [the website](https://n-components.com/) for demos.
+  <p>Simple web components for static vanilla HTML, JS and CSS websites</p>
 
-To use, import with `<script src="https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"></script>` in your HTML `<head>`.
+  <p>
+    <a href="https://n-components.com/">Website & Demos</a>
+  </p>
 
-View our [Github](https://github.com/Trenoxxious/n-components) to see all of the available n-components options.
+  <p>
+    <a href="https://github.com/Trenoxxious/n-components/">Our Github</a>
+  </p>
+</div>
+
+---

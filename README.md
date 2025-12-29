@@ -1,70 +1,108 @@
-# n-components
+<div align="center">
+  <img src="n-components/public/n-components-logo.webp" alt="n-components logo" height="120">
 
-Simple web components for use with *static* vanilla HTML, JS and CSS websites.
+  <h1>n-components</h1>
 
-Visit [the website](https://n-components.com/) for demos.
+  <p>Simple web components for static vanilla HTML, JS and CSS websites</p>
 
-To use, import with `<script src="https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"></script>` in your HTML `<head>`.
+  <p>
+    <a href="https://n-components.com/">Website & Demos</a>
+  </p>
+</div>
 
-## n-buttons
-**An n-component button element is called using `<n-button></n-button>` in any HTML document/context.**
+---
 
-A button element you can use to replace the default button element.
+## Installation
 
-Called with `<n-button></n-button>` and additional options listed below, starting with **nb-** for **n-button**.
+Add this script tag to your HTML `<head>`:
 
-| Class | Description | Default | Accepts |
-| -------- | -------- | -------- | -------- |
-| ***nb-normal*** | Changes the main color theme of the button. | "nb-normal" | "nb-normal", "nb-info", "nb-success", "nb-warning", "nb-alert" |
-| ***nb-dp*** | Does not scale down when clicked if this is set. | Scales down when clicked. | "nb-dp", "nb-dont-punch" |
-| ***nb-scale*** | Will scale when hovered if this is set. | Does not scale on hover. | "nb-scale" |
-| ***nb-outline*** | Will **only** show the outline of the button if this is set. | Shows the button background. | "nb-outline" |
-| ***nb-fast*** | Sets the animation speed of most button animations. | Has 0.25s animation speed. | "nb-fast", "nb-slow", "nb-very-slow" |
-| ***nb-thick*** | Sets the padding high or low on the button. (12x24px or 4x8px padding) | Normal 8x16px padding. | "nb-thick", "nb-thin" |
-| ***nb-dark*** | Sets the button text to white. | Default button color based on theme. | "nb-dark" |
-| ***nb-rounded*** | Rounds or sharpens the button corners. | A border radius of 2px. | "nb-rounded", "nb-sharp" |
-| ***nb-dynamic*** | Disables the button's default max/min width. | Min width of 100px, max width of 200px. | "nb-dynamic" |
-| ***nb-nowrap*** | Disables the button's default text wrapping. | Text wrap of **pretty**. | "nb-nowrap" |
+```html
+<script src="https://unpkg.com/@trenoxxious/n-components@latest/dist/n-components.umd.js"></script>
+```
 
-* The n-button component also accepts the *style* attribute as normal.
+## n-button
 
-## n-utility
-**An n-component utility is called using the appropriate element in any HTML document/context.**
+Custom button element with extensive styling options.
+
+### Usage
+
+```html
+<n-button class="nb-success nb-rounded">Click me</n-button>
+```
+
+### Options
+
+All classes start with `nb-` prefix:
+
+| Class | Description | Values |
+| --- | --- | --- |
+| `nb-normal` | Color theme | `nb-normal`, `nb-info`, `nb-success`, `nb-warning`, `nb-alert` |
+| `nb-dp` | Disable scale-down on click | `nb-dp`, `nb-dont-punch` |
+| `nb-scale` | Scale on hover | `nb-scale` |
+| `nb-outline` | Outline style only | `nb-outline` |
+| `nb-fast` | Animation speed | `nb-fast`, `nb-slow`, `nb-very-slow` |
+| `nb-thick` | Padding size | `nb-thick` (12x24px), `nb-thin` (4x8px) |
+| `nb-dark` | White text color | `nb-dark` |
+| `nb-rounded` | Corner style | `nb-rounded`, `nb-sharp` |
+| `nb-dynamic` | Disable width constraints | `nb-dynamic` |
+| `nb-nowrap` | Disable text wrapping | `nb-nowrap` |
+
+The component also accepts standard HTML `style` attributes.
+
+## Utilities
 
 ### n-copy
-A drop-in **copy** button you can throw pretty much anywhere.
 
-Called with `<n-copy></n-copy>` and additional options listed below, staring with **nc-** for **n-copy**.
+Drop-in copy-to-clipboard button.
 
-| Class | Description | Default | Accepts | Note |
-| -------- | -------- | -------- | -------- | -------- |
-| *nc-unset* | Sets the position of the n-copy element. | "nc-unset" | "nc-tr", "nc-tl", "nc-t", "nc-br", "nc-bl", "nc-b", "nc-l", "nc-r", "nc-unset" | All positions outside of "nc-unset" will also be assigned **absolute positioning** and *should be placed inside of a relative element*. |
-| *nc-small* | Sets the size of the copy button/SVG element. | "nc-small" | "nc-small" (16x16px), "nc-medium" (24x24px), "nc-large" (32x32px)| The button has a default padding of 4px. You can use `style="padding: 0;"` to eliminate this. |
-| *nc-success-[#00FF00]* | When copied, sets the color of the copy button to the specified value for 2s | null | Any valid **HEX** or **name** color string | |
-| *nc-dark* | Sets the button text to white. | The copy SVG is black in color. | "nc-dark" | |
+**Usage:**
 
-Then, the `<n-copy></n-copy>` element also takes a `copy` attribute:
+```html
+<n-copy copy="Text to copy" class="nc-small nc-dark"></n-copy>
+```
 
-| Attribute | Description | Default | Accepts | Note |
-| -------- | -------- | -------- | -------- | -------- |
-| *copy* | Sets the string to be copied when clicked. | null | A valid string. | You may have to escape the string you intend the user to copy using backslashes (\\). |
+**Classes** (prefix: `nc-`):
+
+| Class | Description | Values |
+| --- | --- | --- |
+| `nc-unset` | Position | `nc-tr`, `nc-tl`, `nc-t`, `nc-br`, `nc-bl`, `nc-b`, `nc-l`, `nc-r`, `nc-unset` |
+| `nc-small` | Size | `nc-small` (16px), `nc-medium` (24px), `nc-large` (32px) |
+| `nc-success-[color]` | Success color (2s) | Any HEX or named color (e.g., `nc-success-#00FF00`) |
+| `nc-dark` | Dark mode | `nc-dark` |
+
+**Attributes:**
+
+| Attribute | Description |
+| --- | --- |
+| `copy` | String to copy to clipboard (escape special characters with `\`) |
+
+**Note:** Position values other than `nc-unset` use absolute positioning. Place inside a relative container.
 
 ---
 
 ### n-tooltip
-An attribute you can assign to almost anything to display a tooltip at the user's cursor.
 
-Called with the `n-tooltip=` dataset and additional options listed below, starting with **nt-** for **n-tooltip**.
+Display tooltips on hover for any element.
 
-| Class | Description | Default | Accepts |
-| -------- | -------- | -------- | -------- |
-| *nt-dark* | Sets the tooltip to dark mode with a dark background and white text. | White background and black text. | "nc-dark" |
-| *nt-fast* | Sets the opacity animation speed. | Has 0.25s opacity animation speed. | "nt-fast", "nt-slow", "nt-very-slow" |
+**Usage:**
 
-Then, the `n-tooltip` attribute also requires a string to display:
+```html
+<button n-tooltip="This is a tooltip" class="nt-dark">
+  Hover me
+</button>
+```
 
-| Attribute | Description | Default | Accepts | Note |
-| -------- | -------- | -------- | -------- | -------- |
-| *n-tooltip="This is a tooltip."* | Sets the string that is displayed on element hover. | null | A valid string. | You may have to escape the string you intend to display to the user using backslashes (\\). |
+**Classes** (prefix: `nt-`):
+
+| Class | Description | Values |
+| --- | --- | --- |
+| `nt-dark` | Dark theme | `nt-dark` |
+| `nt-fast` | Animation speed | `nt-fast`, `nt-slow`, `nt-very-slow` |
+
+**Attributes:**
+
+| Attribute | Description |
+| --- | --- |
+| `n-tooltip` | Tooltip text to display (escape special characters with `\`) |
 
 ---

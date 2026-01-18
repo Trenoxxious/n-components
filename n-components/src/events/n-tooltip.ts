@@ -58,6 +58,33 @@ function findAllNClasses(classlist: string) {
     return classesToAdd;
 }
 
+function calculateTooltipPositionCentered(elementRect: DOMRect, tooltipWidth: number, tooltipHeight: number) {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const margin = 10;
+    const padding = 5;
+
+    let left = elementRect.left + (elementRect.width / 2) - (tooltipWidth / 2);
+    let top = elementRect.bottom + padding;
+
+    if (left < margin) {
+        left = margin;
+    }
+
+    if (left + tooltipWidth > viewportWidth - margin) {
+        left = viewportWidth - tooltipWidth - margin;
+    }
+
+    if (top + tooltipHeight > viewportHeight - margin) {
+        top = elementRect.top - tooltipHeight - padding;
+        if (top < margin) {
+            top = margin;
+        }
+    }
+
+    return { top, left };
+}
+
 function calculateTooltipPosition(mouseX: number, mouseY: number, tooltipWidth: number, tooltipHeight: number) {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -115,27 +142,42 @@ function showTooltip(target: HTMLElement, textToShow: string | null, mouseX: num
         const tooltipRect = toolTip.getBoundingClientRect();
         const tooltipWidth = tooltipRect.width;
         const tooltipHeight = tooltipRect.height;
-        const position = calculateTooltipPosition(mouseX, mouseY, tooltipWidth, tooltipHeight);
+
+        const isMouseFollow = targetElement.classList.contains('nt-mousefollow');
+
+        let position;
+        if (isMouseFollow) {
+            position = calculateTooltipPosition(mouseX, mouseY, tooltipWidth, tooltipHeight);
+        } else {
+            const elementRect = targetElement.getBoundingClientRect();
+            position = calculateTooltipPositionCentered(elementRect, tooltipWidth, tooltipHeight);
+        }
 
         toolTip.style.top = `${position.top}px`;
         toolTip.style.left = `${position.left}px`;
         toolTip.style.visibility = 'visible';
 
         const handleMouseMove = (moveEvent: MouseEvent) => {
-            const newPosition = calculateTooltipPosition(
-                moveEvent.clientX,
-                moveEvent.clientY,
-                tooltipWidth,
-                tooltipHeight
-            );
-            toolTip.style.top = `${newPosition.top}px`;
-            toolTip.style.left = `${newPosition.left}px`;
+            if (isMouseFollow) {
+                const newPosition = calculateTooltipPosition(
+                    moveEvent.clientX,
+                    moveEvent.clientY,
+                    tooltipWidth,
+                    tooltipHeight
+                );
+                toolTip.style.top = `${newPosition.top}px`;
+                toolTip.style.left = `${newPosition.left}px`;
+            }
         };
 
-        targetElement.addEventListener('mousemove', handleMouseMove);
+        if (isMouseFollow) {
+            targetElement.addEventListener('mousemove', handleMouseMove);
+        }
 
         const closeTooltip = () => {
-            targetElement.removeEventListener('mousemove', handleMouseMove);
+            if (isMouseFollow) {
+                targetElement.removeEventListener('mousemove', handleMouseMove);
+            }
             targetElement.removeEventListener('mouseleave', closeTooltip);
             document.removeEventListener('scroll', closeTooltip, true);
             toolTip.style.opacity = '0';
@@ -190,7 +232,7 @@ export function initializeTooltips() {
         const target = e.target as HTMLElement;
 
         if (!target) {
-
+            // DO NOTHING FOR NOW
         }
     });
 }

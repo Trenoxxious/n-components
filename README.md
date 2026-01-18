@@ -82,12 +82,20 @@ Drop-in copy-to-clipboard button.
 
 ### n-tooltip
 
-Display tooltips on hover for any element.
+Display tooltips on hover for any element. Tooltips are centered underneath the hovered element with 5px padding by default.
 
 **Usage:**
 
 ```html
 <button n-tooltip="This is a tooltip" class="nt-dark">
+  Hover me
+</button>
+```
+
+**Mouse-Following Tooltips:**
+
+```html
+<button n-tooltip="Follows the mouse" class="nt-mousefollow">
   Hover me
 </button>
 ```
@@ -98,11 +106,14 @@ Display tooltips on hover for any element.
 | --- | --- | --- |
 | `nt-dark` | Dark theme | `nt-dark` |
 | `nt-fast` | Animation speed | `nt-fast`, `nt-slow`, `nt-very-slow` |
+| `nt-mousefollow` | Follow mouse cursor | `nt-mousefollow` |
 
 **Attributes:**
 
 | Attribute | Description |
 | --- | --- |
 | `n-tooltip` | Tooltip text to display (escape special characters with `\`) |
+
+**Note:** By default, tooltips are centered underneath the element with 5px padding. Use `nt-mousefollow` class to make the tooltip follow the mouse cursor instead.
 
 ---

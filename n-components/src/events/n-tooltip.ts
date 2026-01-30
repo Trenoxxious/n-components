@@ -210,12 +210,53 @@ function showTooltip(target: HTMLElement, textToShow: string | null, mouseX: num
 }
 
 export function initializeTooltips() {
+    let activeTooltipTarget: HTMLElement | null = null;
+    let activeTooltipElement: HTMLElement | null = null;
+
+    const tooltipObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            if (
+                mutation.type === 'attributes' &&
+                mutation.attributeName === 'n-tooltip' &&
+                mutation.target === activeTooltipTarget &&
+                activeTooltipElement
+            ) {
+                const newText = (mutation.target as HTMLElement).getAttribute('n-tooltip');
+                if (newText) {
+                    activeTooltipElement.innerHTML = newText;
+                    if (newText.length >= maxTooltipLength) {
+                        activeTooltipElement.style.textWrap = 'pretty';
+                    } else {
+                        activeTooltipElement.style.textWrap = 'nowrap';
+                    }
+                } else {
+                    // Attribute removed or emptied — hide tooltip
+                    activeTooltipElement.style.opacity = '0';
+                    const el = activeTooltipElement;
+                    setTimeout(() => el.parentElement && el.remove(), 160);
+                    activeTooltipElement = null;
+                    activeTooltipTarget = null;
+                }
+            }
+        }
+    });
+
+    tooltipObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['n-tooltip'],
+        subtree: true,
+    });
+
     document.addEventListener('mouseenter', (e) => {
         const target = e.target as HTMLElement;
         const mouseEvent = e as MouseEvent;
 
         if (target instanceof HTMLElement && target.hasAttribute('n-tooltip')) {
+            activeTooltipTarget = target;
             showTooltip(target, target.getAttribute('n-tooltip'), mouseEvent.clientX, mouseEvent.clientY);
+            // Grab the tooltip element just appended
+            const tooltips = document.querySelectorAll('.tooltip');
+            activeTooltipElement = tooltips[tooltips.length - 1] as HTMLElement;
         }
     }, true);
 
@@ -224,15 +265,19 @@ export function initializeTooltips() {
         const touch = e.touches[0];
 
         if (target instanceof HTMLElement && target.hasAttribute('n-tooltip')) {
+            activeTooltipTarget = target;
             showTooltip(target, target.getAttribute('n-tooltip'), touch.clientX, touch.clientY);
+            const tooltips = document.querySelectorAll('.tooltip');
+            activeTooltipElement = tooltips[tooltips.length - 1] as HTMLElement;
         }
     }, true);
 
     document.addEventListener('mouseleave', (e) => {
         const target = e.target as HTMLElement;
 
-        if (!target) {
-            // DO NOTHING FOR NOW
+        if (target instanceof HTMLElement && target === activeTooltipTarget) {
+            activeTooltipTarget = null;
+            activeTooltipElement = null;
         }
-    });
+    }, true);
 }

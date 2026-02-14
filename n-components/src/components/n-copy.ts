@@ -155,6 +155,7 @@ export class NCopy extends LitElement {
 
     private handleCopy() {
         const button = this.shadowRoot?.querySelector('.copy-button') as HTMLElement;
+        const currentColor = button.style.color;
 
         if (!this.colorChanging) {
             this.colorChanging = true;
@@ -164,7 +165,7 @@ export class NCopy extends LitElement {
             navigator.clipboard.writeText(this.copy);
             setTimeout(() => {
                 if (button) {
-                    button.style.color = '';
+                    currentColor ? button.style.color = currentColor : button.style.color = '';
                 }
                 this.colorChanging = false;
             }, 2000);
